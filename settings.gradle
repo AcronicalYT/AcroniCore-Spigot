@@ -1,0 +1,4 @@
+rootProject.name = 'AcroniCore'
+
+include 'common'
+include 'gui-core'

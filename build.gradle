@@ -2,9 +2,21 @@ plugins {
     id 'java'
 }
 
+group = 'uk.acronical'
+version = '1.0.0-SNAPSHOT'
+
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
+
+    version = rootProject.version
+    group = rootProject.group
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
 
     repositories {
         mavenCentral()
@@ -19,23 +31,37 @@ subprojects {
     }
 
     dependencies {
-        compileOnly("org.spigotmc:spigot-api:1.21.11-R0.1-SNAPSHOT")
+        compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")
+
+        compileOnly('org.jetbrains:annotations:24.1.0')
+
+        testImplementation platform('org.junit:junit-bom:5.10.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
-}
 
-group = 'uk.acronical'
-version = '1.0-SNAPSHOT'
+    test {
+        useJUnitPlatform()
+    }
 
-repositories {
-    mavenCentral()
-}
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name = "AcronicalsRepo"
+                def releasesRepoUrl = "https://maven.acronical.uk/releases"
+                def snapshotsRepoUrl = "https://maven.acronical.uk/snapshots"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-
-test {
-    useJUnitPlatform()
+                credentials {
+                    username = project.findProperty("mavenUser") ?: System.getenv("MAVEN_USERNAME")
+                    password = project.findProperty("mavenPassword") ?: System.getenv("MAVEN_PASSWORD")
+                }
+            }
+        }
+    }
 }

@@ -43,7 +43,7 @@ public abstract class DefaultGui implements InventoryHolder {
      */
     public DefaultGui(Player player, String title, int size) {
         this.player = player;
-        this.title = StringUtils.color(title);
+        this.title = StringUtils.colour(title);
         this.size = size;
     }
 
@@ -90,8 +90,8 @@ public abstract class DefaultGui implements InventoryHolder {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.setDisplayName(StringUtils.color(displayName));
-            meta.setLore(Arrays.stream(lore).map(StringUtils::color).toList());
+            meta.setDisplayName(StringUtils.colour(displayName));
+            meta.setLore(Arrays.stream(lore).map(StringUtils::colour).toList());
             item.setItemMeta(meta);
         }
         return item;

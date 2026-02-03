@@ -4,7 +4,9 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import uk.acronical.common.StringUtils;
 
+import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class ItemBuilder {
@@ -34,7 +36,7 @@ public class ItemBuilder {
      * @return The current ItemBuilder instance.
      */
     public ItemBuilder name(String name) {
-        if (meta != null) meta.setDisplayName(name);
+        if (meta != null) meta.setDisplayName(StringUtils.colour(name));
         return this;
     }
 
@@ -44,7 +46,7 @@ public class ItemBuilder {
      * @return The current ItemBuilder instance.
      */
     public ItemBuilder lore(String... lore) {
-        if (meta != null) meta.setLore(java.util.Arrays.asList(lore));
+        if (meta != null) meta.setLore(Arrays.asList(lore));
         return this;
     }
 

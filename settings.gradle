@@ -1,4 +1,5 @@
-rootProject.name = 'AcroniCore'
+rootProject.name = 'AcroniCore-Spigot'
 
 include 'common'
 include 'gui-core'
+include 'item-core'

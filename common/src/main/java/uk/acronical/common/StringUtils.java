@@ -9,16 +9,16 @@ import java.util.stream.Stream;
 public class StringUtils {
 
     /**
-     * Pattern to match hex color codes in the format &#FFFFFF.
+     * Pattern to match hex colour codes in the format &#FFFFFF.
      */
     private static final Pattern HEX_PATTERN = Pattern.compile("&#([A-Fa-f0-9]{6})");
 
     /**
-     * Colors a message by translating color codes and hex codes.
-     * @param message The message to color.
-     * @return The colored message.
+     * Colors a message by translating colour codes and hex codes.
+     * @param message The message to colour.
+     * @return The coloured message.
      */
-    public static String color(String message) {
+    public static String colour(String message) {
         if (message == null || message.isEmpty()) return "";
 
         Matcher matcher = HEX_PATTERN.matcher(message);
@@ -56,15 +56,15 @@ public class StringUtils {
      * @param max The maximum progress value.
      * @param totalBars The total number of bars in the progress bar.
      * @param symbol The symbol used for the progress bar.
-     * @param completedColor The color for completed progress.
-     * @param notCompletedColor The color for not completed progress.
+     * @param completedColour The colour for completed progress.
+     * @param notCompletedColour The colour for not completed progress.
      * @return The progress bar string.
      */
-    public static String getProgressBar(int current, int max, int totalBars, String symbol, String completedColor, String notCompletedColor) {
+    public static String getProgressBar(int current, int max, int totalBars, String symbol, String completedColour, String notCompletedColour) {
         float percent = (float) current / max;
         int progressBars = (int) (totalBars * percent);
 
-        return color(completedColor + symbol.repeat(progressBars) + notCompletedColor + symbol.repeat(totalBars - progressBars));
+        return colour(completedColour + symbol.repeat(progressBars) + notCompletedColour + symbol.repeat(totalBars - progressBars));
     }
 
     /**

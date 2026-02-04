@@ -21,6 +21,7 @@ public class ChatInputListener implements Listener {
 
     /**
      * Registers a chat input listener for a specific player.
+     *
      * @param plugin The plugin calling this method.
      * @param playerUUID The UUID of the player to listen for.
      * @param onInput The callback to execute when input is received.
@@ -36,6 +37,7 @@ public class ChatInputListener implements Listener {
 
     /**
      * Handles player chat events to capture input.
+     *
      * @param event The chat event.
      */
     @EventHandler(priority = EventPriority.LOWEST)

@@ -37,6 +37,7 @@ public abstract class DefaultGui implements InventoryHolder {
 
     /**
      * Constructor for DefaultGui.
+     *
      * @param player The player for whom the GUI is created.
      * @param title The title of the GUI.
      * @param size The size of the GUI.
@@ -49,18 +50,21 @@ public abstract class DefaultGui implements InventoryHolder {
 
     /**
      * Gets the title of the GUI.
+     *
      * @return The title of the GUI.
      */
     public String getTitle() { return title; }
 
     /**
      * Gets the size of the GUI.
+     *
      * @return The size of the GUI.
      */
     public int getSize() { return size; }
 
     /**
      * Handles menu interactions.
+     *
      * @param event The InventoryClickEvent.
      */
     public abstract void handleMenu(InventoryClickEvent event);
@@ -81,6 +85,7 @@ public abstract class DefaultGui implements InventoryHolder {
 
     /**
      * Creates a GUI item with the specified material, display name, and lore.
+     *
      * @param material The material (type) of the item.
      * @param displayName The display name of the item.
      * @param lore The lore (description) of the item.
@@ -99,6 +104,7 @@ public abstract class DefaultGui implements InventoryHolder {
 
     /**
      * Gets the inventory of the GUI.
+     *
      * @return The inventory object of the GUI.
      */
     @NotNull
@@ -109,12 +115,14 @@ public abstract class DefaultGui implements InventoryHolder {
 
     /**
      * Handles the closing of the inventory. (Optional to override)
+     *
      * @param event The InventoryCloseEvent.
      */
     public void handleClose(InventoryCloseEvent event) { }
 
     /**
      * Handles click events in the inventory.
+     *
      * @param event The InventoryClickEvent.
      */
     public void handleClick(InventoryClickEvent event) {

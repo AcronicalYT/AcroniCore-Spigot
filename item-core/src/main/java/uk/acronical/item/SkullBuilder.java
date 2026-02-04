@@ -17,6 +17,7 @@ public class SkullBuilder extends ItemBuilder {
 
     /**
      * Sets the owner of the skull by UUID.
+     *
      * @param uuid The UUID of the player to set as the owner.
      * @return The current SkullBuilder instance.
      */

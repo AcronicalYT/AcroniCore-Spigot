@@ -15,6 +15,7 @@ public class StringUtils {
 
     /**
      * Colors a message by translating colour codes and hex codes.
+     *
      * @param message The message to colour.
      * @return The coloured message.
      */
@@ -33,6 +34,7 @@ public class StringUtils {
 
     /**
      * Beautifies a string by replacing underscores with spaces and capitalizing each word.
+     *
      * @param text The text to beautify.
      * @return The beautified text.
      */
@@ -43,6 +45,7 @@ public class StringUtils {
 
     /**
      * Beautifies an enum value by replacing underscores with spaces and capitalizing each word.
+     *
      * @param enumValue The enum value to beautify.
      * @return The beautified enum value.
      */
@@ -52,6 +55,7 @@ public class StringUtils {
 
     /**
      * Generates a progress bar string.
+     *
      * @param current The current progress value.
      * @param max The maximum progress value.
      * @param totalBars The total number of bars in the progress bar.
@@ -69,6 +73,7 @@ public class StringUtils {
 
     /**
      * Centers the given text within a fixed width.
+     *
      * @param text The text to center.
      * @return The centered text.
      */

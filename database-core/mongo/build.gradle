@@ -1,0 +1,8 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':common')
+    implementation 'org.mongodb:mongodb-driver-sync:4.11.1'
+}

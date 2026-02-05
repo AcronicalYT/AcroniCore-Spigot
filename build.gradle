@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'uk.acronical'
-version = '1.0.3-SNAPSHOT'
+version = '1.0.4-SNAPSHOT'
 
 subprojects {
     apply plugin: 'java-library'

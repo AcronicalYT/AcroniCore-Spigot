@@ -32,6 +32,7 @@ public class ItemBuilder {
 
     /**
      * Sets the display name of the item.
+     *
      * @param name The display name to set.
      * @return The current ItemBuilder instance.
      */
@@ -42,6 +43,7 @@ public class ItemBuilder {
 
     /**
      * Sets the lore of the item.
+     *
      * @param lore The lore lines to set.
      * @return The current ItemBuilder instance.
      */
@@ -52,6 +54,7 @@ public class ItemBuilder {
 
     /**
      * Sets the item flags of the item.
+     *
      * @param flags The item flags to set.
      * @return The current ItemBuilder instance.
      */
@@ -66,6 +69,7 @@ public class ItemBuilder {
 
     /**
      * Allows for complex modifications to the ItemMeta via a Consumer.
+     *
      * @param consumer The consumer that modifies the ItemMeta.
      * @return The current ItemBuilder instance.
      */
@@ -76,6 +80,7 @@ public class ItemBuilder {
 
     /**
      * Builds and returns the final ItemStack.
+     *
      * @return The constructed ItemStack.
      */
     public ItemStack build() {

@@ -1,11 +1,15 @@
 rootProject.name = 'AcroniCore-Spigot'
 
+// Includes everything
+include 'everything'
+
+// Individual modules
+include 'command-core'
 include 'common'
+include 'config-core'
+include 'database-core:all'
+include 'database-core:mongo'
+include 'database-core:sql'
 include 'gui-core'
 include 'item-core'
-include 'config-core'
-include 'database-core:sql'
-include 'database-core:mongo'
-include 'database-core:all'
-include 'command-core'
 include 'nms-core'

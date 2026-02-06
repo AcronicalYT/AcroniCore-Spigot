@@ -37,7 +37,7 @@ To implement the release version of AcroniCore, you must determine your package 
 #### For Maven:
 ```xml
 <repository>
-  <id>acronical-repo-snapshots</id>
+  <id>acronical-repo-releases</id>
   <name>Acronical&#39;s Repos</name>
   <url>https://maven.acronical.uk/releases</url>
 </repository>

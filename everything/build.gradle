@@ -1,11 +1,15 @@
+plugins {
+    id 'java-library'
+}
+
 dependencies {
-    implementation(project(":command-core"))
-    implementation(project(":common"))
-    implementation(project(":config-core"))
-    implementation(project(":database-core:all"))
-    implementation(project(":database-core:mongo"))
-    implementation(project(":database-core:sql"))
-    implementation(project(":gui-core"))
-    implementation(project(":item-core"))
-    implementation(project(":nms-core"))
+    api project(":command-core")
+    api project(":common")
+    api project(":config-core")
+
+    api project(":database-core:all")
+
+    api project(":gui-core")
+    api project(":item-core")
+    api project(":nms-core")
 }

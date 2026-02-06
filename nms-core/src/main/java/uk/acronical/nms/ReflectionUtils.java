@@ -68,6 +68,13 @@ public class ReflectionUtils {
         }
     }
 
+    /**
+     * Utility method to get a field from a class by its type.
+     *
+     * @param target The class to search for the field.
+     * @param fieldType The type of the field to find.
+     * @return The Field object if found, or null if no matching field is found.
+     */
     public static Field getFieldByType(Class<?> target, Class<?> fieldType) {
         for (Field field : target.getDeclaredFields()) {
             if (field.getType().equals(fieldType)) {

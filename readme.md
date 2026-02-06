@@ -2,7 +2,8 @@
 
 ![Platform](https://img.shields.io/badge/Platform-Spigot_|_Paper-orange)
 ![License](https://img.shields.io/badge/License-LGPLv3-blue)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+[![Build and Publish](https://github.com/AcronicalYT/AcroniCore-Spigot/actions/workflows/publish.yml/badge.svg)](https://github.com/AcronicalYT/AcroniCore-Spigot/actions/workflows/publish.yml)
+
 
 This version of **AcroniCore** is designed and built for servers running Spigot, or any of its forks (Paper, Airplane, etc.). It provides robust and efficient core plugin libraries to developers which helps speed up the development process without sacrificing on speed, performance and safety.
 

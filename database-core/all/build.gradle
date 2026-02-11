@@ -1,8 +1,0 @@
-plugins {
-    id 'java-library'
-}
-
-dependencies {
-    api project(':database-core:sql')
-    api project(':database-core:mongo')
-}

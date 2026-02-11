@@ -7,7 +7,7 @@ dependencies {
     api project(":common")
     api project(":config-core")
 
-    api project(":database-core:all")
+    api project(":database-core")
 
     api project(":gui-core")
     api project(":item-core")

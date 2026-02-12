@@ -22,9 +22,9 @@ This version of **AcroniCore** is designed and built for servers running Spigot,
 * **Individual Modules:** Import only what you need (Recommended).
 * **Full Suite:** Import all modules using `everything`.
 * **Database Specifics:** The `database-core` module has split implementations:
-    * `database-core:sql` - For SQL-based databases (HikariCP).
-    * `database-core:mongo` - For MongoDB.
-    * `database-core:all` - Includes both SQL and Mongo drivers.
+    * `sql` - For SQL-based databases (HikariCP).
+    * `mongo` - For MongoDB.
+    * `database-core` - Will implement both database handlers.
 
 ---
 
@@ -73,6 +73,54 @@ implementation 'uk.acronical:[module]:[version]'
 
 ### Snapshot
 Implementing the snapshot version of AcroniCore is the same as implementing the release version, except you must change the repository URL to `https://maven.acronical.uk/snapshots` and ensure that your version ends with `-SNAPSHOT`. You can find the implementation code for each package manager on the [Maven Repository](https://maven.acronical.uk/).
+
+### Shading & Relocation
+Since AcroniCore is a library, you usually need to bundle it inside your plugin so users don't have to install it separately. To do this, use the **Shadow** (Gradle) or **Shade** (Maven) plugin.
+
+**Important:** You must **relocate** the library to a unique package within your plugin. This prevents crashes caused by conflicts if another plugin on the server uses a different version of AcroniCore.
+
+#### Gradle (ShadowJar)
+Add the plugin to your `plugins` block and configure the relocation in your `build.gradle`:
+
+```groovy
+plugins {
+    id "com.github.johnrengelman.shadow" version "8.1.1" // Check for the latest version
+}
+
+shadowJar {
+    // Replace 'your.package.path' with your plugin's main package
+    relocate 'uk.acronical', 'your.package.path.libs.acronical'
+}
+
+build.dependsOn shadowJar
+```
+
+#### Maven (Shade Plugin)
+Add the following to your `plugins` section in `pom.xml`:
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>3.5.1</version>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>shade</goal>
+            </goals>
+            <configuration>
+                <relocations>
+                    <relocation>
+                        <pattern>uk.acronical</pattern>
+                        <!-- Replace your.package.path with your plugin's main package -->
+                        <shadedPattern>your.package.path.libs.acronical</shadedPattern>
+                    </relocation>
+                </relocations>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
 
 ## Examples
 These will be coming soon as I am still working on the documentation for the modules.

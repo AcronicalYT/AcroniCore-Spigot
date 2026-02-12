@@ -12,3 +12,12 @@ include 'database-core:sql'
 include 'gui-core'
 include 'item-core'
 include 'nms-core'
+include 'task-core'
+
+/*
+ * Possible future modules:
+ * scoreboard-core
+ * tablist-core
+ * bossbar-core
+ * permission-core
+ */

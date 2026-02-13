@@ -20,4 +20,16 @@ include 'task-core'
  * tablist-core
  * bossbar-core
  * permission-core
+ * hologram-core
+ * particle-core
+ * world-core
+ * database-core:redis
+ * proxy-code
+ * locale-core
+ * cooldown-core
+ * discord-core
+ * packet-core
+ * pdc-core
+ * http-core
+ * script-core
  */

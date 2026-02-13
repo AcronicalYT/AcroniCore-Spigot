@@ -17,6 +17,7 @@ This version of **AcroniCore** is designed and built for servers running Spigot,
 | **gui-core**      | GUI creation and management             |
 | **item-core**     | ItemStacks, ItemMeta, etc.              |
 | **nms-core**      | NMS interfacing                         |
+| **task-core**     | Scheduling different tasks              |
 
 ### Import Options
 * **Individual Modules:** Import only what you need (Recommended).

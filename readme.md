@@ -26,6 +26,7 @@ This version of **AcroniCore** is designed and built for servers running Spigot,
 * **Database Specifics:** The `database-core` module has split implementations:
     * `sql` - For SQL-based databases (HikariCP).
     * `mongo` - For MongoDB.
+    * `redis` - For Redis.
     * `database-core` - Will implement both database handlers.
 
 ---

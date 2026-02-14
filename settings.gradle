@@ -26,7 +26,7 @@ include 'http-core'
  * particle-core
  * world-core
  * database-core:redis
- * proxy-code
+ * proxy-core
  * locale-core
  * cooldown-core
  * discord-core
@@ -34,6 +34,16 @@ include 'http-core'
  * pdc-core
  * script-core
  * updater-core
+ * test-core
+ * ui-core
+ * skin-core
+ * error-core
+ * session-core
+ * inject-core
+ * archive-core
+ * chat-core
+ * region-core
+ * teleport-core
  *
  * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding and maven.
  *  This will need a bit of work, as I need to essentially load each module as a static reference within the plugin, as well as initialising classes that require runtime access

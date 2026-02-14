@@ -32,6 +32,7 @@ include 'http-core'
  * packet-core
  * pdc-core
  * script-core
+ * updater-core
  *
  * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding and maven.
  *  This will need a bit of work, as I need to essentially load each module as a static reference within the plugin, as well as initialising classes that require runtime access

@@ -4,50 +4,61 @@ rootProject.name = 'AcroniCore-Spigot'
 include 'everything'
 
 // Individual modules
-include 'command-core'
+
+// Infrastructure
 include 'common'
-include 'config-core'
+include 'task-core'
+// include 'inject-core'
+// include 'error-core'
+// include 'updater-core'
+
+// Backend
 include 'database-core:mongo'
 include 'database-core:sql'
 include 'database-core:redis'
+include 'config-core'
+// include 'session-core'
+// include 'pdc-core'
+// include 'archive-core'
+// include 'permission-core'
+
+// Frontend
 include 'gui-core'
+// include 'ui-core'
+// include 'scoreboard-core'
+// include 'tablist-core'
+// include 'bossbar-core'
+// include 'hologram-core'
+// include 'particle-core'
+// include 'skin-core'
+
+// Mechanics
+include 'command-core'
+// include 'permission-core'
+// include 'cooldown-core'
+// include 'script-core'
+// include 'chat-core'
+
+// Environment
 include 'item-core'
+// include 'world-core'
+// include 'region-core'
+// include 'teleport-core'
+
+// Networking
 include 'nms-core'
-include 'task-core'
 include 'http-core'
+// include 'discord-core'
+// include 'locale-core'
+// include 'packet-core'
+// include 'proxy-core'
+
+// Development
+// include 'test-core'
 
 /*
- * Possible future modules:
- * scoreboard-core
- * tablist-core
- * bossbar-core
- * permission-core
- * hologram-core
- * particle-core
- * world-core
- * database-core:redis
- * proxy-core
- * locale-core
- * cooldown-core
- * discord-core
- * packet-core
- * pdc-core
- * script-core
- * updater-core
- * test-core
- * ui-core
- * skin-core
- * error-core
- * session-core
- * inject-core
- * archive-core
- * chat-core
- * region-core
- * teleport-core
- *
  * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding and maven.
  *  This will need a bit of work, as I need to essentially load each module as a static reference within the plugin, as well as initialising classes that require runtime access
  *  E.g. anything with init() methods that need to be registered with the server.
  *  This will mean I have to have fallbacks to make sure things are not registered multiple times (this shouldn't happen if I follow my own instructions)
- *
  */

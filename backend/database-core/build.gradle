@@ -1,0 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':backend:database-core:mongo')
+    api project(':backend:database-core:sql')
+    api project(':backend:database-core:redis')
+}

@@ -3,58 +3,64 @@ rootProject.name = 'AcroniCore-Spigot'
 // Includes everything
 include 'everything'
 
-// Individual modules
-
 // Infrastructure
-include 'common'
-include 'task-core'
-// include 'inject-core'
-// include 'error-core'
-// include 'updater-core'
+include 'infrastructure'
+include 'infrastructure:common'
+include 'infrastructure:task-core'
+// include 'infrastructure:inject-core'
+// include 'infrastructure:error-core'
+// include 'infrastructure:updater-core'
 
 // Backend
-include 'database-core:mongo'
-include 'database-core:sql'
-include 'database-core:redis'
-include 'config-core'
-// include 'session-core'
-// include 'pdc-core'
-// include 'archive-core'
-// include 'permission-core'
+include 'backend'
+include 'backend:database-core'
+include 'backend:database-core:mongo'
+include 'backend:database-core:sql'
+include 'backend:database-core:redis'
+include 'backend:config-core'
+// include 'backend:session-core'
+// include 'backend:pdc-core'
+// include 'backend:archive-core'
+// include 'backend:permission-core'
 
 // Frontend
-include 'gui-core'
-// include 'ui-core'
-// include 'scoreboard-core'
-// include 'tablist-core'
-// include 'bossbar-core'
-// include 'hologram-core'
-// include 'particle-core'
-// include 'skin-core'
+include 'frontend'
+include 'frontend:gui-core'
+// include 'frontend:ui-core'
+// include 'frontend:scoreboard-core'
+// include 'frontend:tablist-core'
+// include 'frontend:bossbar-core'
+// include 'frontend:hologram-core'
+// include 'frontend:particle-core'
+// include 'frontend:skin-core'
 
 // Mechanics
-include 'command-core'
-// include 'permission-core'
-// include 'cooldown-core'
-// include 'script-core'
-// include 'chat-core'
+include 'mechanics'
+include 'mechanics:command-core'
+// include 'mechanics:permission-core'
+// include 'mechanics:cooldown-core'
+// include 'mechanics:script-core'
+// include 'mechanics:chat-core'
 
 // Environment
-include 'item-core'
-// include 'world-core'
-// include 'region-core'
-// include 'teleport-core'
+include 'environment'
+include 'environment:item-core'
+// include 'environment:world-core'
+// include 'environment:region-core'
+// include 'environment:teleport-core'
 
 // Networking
-include 'nms-core'
-include 'http-core'
-// include 'discord-core'
-// include 'locale-core'
-// include 'packet-core'
-// include 'proxy-core'
+include 'networking'
+include 'networking:nms-core'
+include 'networking:http-core'
+// include 'networking:discord-core'
+// include 'networking:locale-core'
+// include 'networking:packet-core'
+// include 'networking:proxy-core'
 
 // Development
-// include 'test-core'
+include 'development'
+// include 'development:test-core'
 
 /*
  * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding and maven.

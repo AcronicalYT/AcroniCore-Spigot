@@ -3,15 +3,11 @@ plugins {
 }
 
 dependencies {
-    api project(":command-core")
-    api project(":common")
-    api project(":config-core")
-
-    api project(":database-core")
-
-    api project(":gui-core")
-    api project(":http-core")
-    api project(":item-core")
-    api project(":nms-core")
-    api project(":task-core")
+    api project(':infrastructure')
+    api project(':backend')
+    api project(':frontend')
+    api project(':mechanics')
+    api project(':environment')
+    api project(':networking')
+    api project(':development')
 }

@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':backend:config-core')
+    api project(':backend:database-core')
+    // api project(':backend:session-core')
+    // api project(':backend:pdc-core')
+    // api project(':backend:archive-core')
+    // api project(':backend:permission-core')
+}

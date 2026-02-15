@@ -1,0 +1,11 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':infrastructure:common')
+    api project(':infrastructure:task-core')
+    // api project(':infrastructure:inject-core')
+    // api project(':infrastructure:error-core')
+    // api project(':infrastructure:updater-core')
+}

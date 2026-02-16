@@ -1,0 +1,11 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':mechanics:command-core')
+    // api project(':mechanics:permission-core')
+    // api project(':mechanics:cooldown-core')
+    // api project(':mechanics:script-core')
+    // api project(':mechanics:chat-core')
+}

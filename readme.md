@@ -8,16 +8,17 @@
 This version of **AcroniCore** is designed and built for servers running Spigot, or any of its forks (Paper, Airplane, etc.). It provides robust and efficient core plugin libraries to developers which helps speed up the development process without sacrificing on speed, performance and safety.
 
 ## Modules
-| Module            | Used for                                |
-|-------------------|:----------------------------------------|
-| **common**        | Maths, Strings, Chat, Utilities, etc.   |
-| **command-core**  | Command creation, tab completion (soon) |
-| **config-core**   | Config files: yaml, messages            |
-| **database-core** | Database connections, queries, etc.*    |
-| **gui-core**      | GUI creation and management             |
-| **item-core**     | ItemStacks, ItemMeta, etc.              |
-| **nms-core**      | NMS interfacing                         |
-| **task-core**     | Scheduling different tasks              |
+| Module            | Used for                                      |
+|-------------------|:----------------------------------------------|
+| **common**        | Maths, Strings, Chat, Utilities, etc.         |
+| **command-core**  | Command creation, tab completion (soon)       |
+| **config-core**   | Config files: yaml, messages                  |
+| **database-core** | Database connections, queries, etc.*          |
+| **gui-core**      | GUI creation and management                   |
+| **item-core**     | ItemStacks, ItemMeta, etc.                    |
+| **nms-core**      | NMS interfacing                               |
+| **task-core**     | Scheduling different tasks                    |
+| **http-core**     | Interfacing with remote addresses via http(s) |
 
 ### Import Options
 * **Individual Modules:** Import only what you need (Recommended).
@@ -25,6 +26,7 @@ This version of **AcroniCore** is designed and built for servers running Spigot,
 * **Database Specifics:** The `database-core` module has split implementations:
     * `sql` - For SQL-based databases (HikariCP).
     * `mongo` - For MongoDB.
+    * `redis` - For Redis.
     * `database-core` - Will implement both database handlers.
 
 ---

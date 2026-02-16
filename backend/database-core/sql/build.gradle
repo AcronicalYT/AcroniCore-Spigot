@@ -1,0 +1,8 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':infrastructure:common')
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+}

@@ -3,33 +3,68 @@ rootProject.name = 'AcroniCore-Spigot'
 // Includes everything
 include 'everything'
 
-// Individual modules
-include 'command-core'
-include 'common'
-include 'config-core'
-include 'database-core:mongo'
-include 'database-core:sql'
-include 'gui-core'
-include 'item-core'
-include 'nms-core'
-include 'task-core'
+// Infrastructure
+include 'infrastructure'
+include 'infrastructure:common'
+include 'infrastructure:task-core'
+// include 'infrastructure:inject-core'
+// include 'infrastructure:error-core'
+// include 'infrastructure:updater-core'
+
+// Backend
+include 'backend'
+include 'backend:database-core'
+include 'backend:database-core:mongo'
+include 'backend:database-core:sql'
+include 'backend:database-core:redis'
+include 'backend:config-core'
+// include 'backend:session-core'
+// include 'backend:pdc-core'
+// include 'backend:archive-core'
+// include 'backend:permission-core'
+
+// Frontend
+include 'frontend'
+include 'frontend:gui-core'
+// include 'frontend:ui-core'
+// include 'frontend:scoreboard-core'
+// include 'frontend:tablist-core'
+// include 'frontend:bossbar-core'
+// include 'frontend:hologram-core'
+// include 'frontend:particle-core'
+// include 'frontend:skin-core'
+
+// Mechanics
+include 'mechanics'
+include 'mechanics:command-core'
+// include 'mechanics:permission-core'
+// include 'mechanics:cooldown-core'
+// include 'mechanics:script-core'
+// include 'mechanics:chat-core'
+
+// Environment
+include 'environment'
+include 'environment:item-core'
+// include 'environment:world-core'
+// include 'environment:region-core'
+// include 'environment:teleport-core'
+
+// Networking
+include 'networking'
+include 'networking:nms-core'
+include 'networking:http-core'
+// include 'networking:discord-core'
+// include 'networking:locale-core'
+// include 'networking:packet-core'
+// include 'networking:proxy-core'
+
+// Development
+include 'development'
+// include 'development:test-core'
 
 /*
- * Possible future modules:
- * scoreboard-core
- * tablist-core
- * bossbar-core
- * permission-core
- * hologram-core
- * particle-core
- * world-core
- * database-core:redis
- * proxy-code
- * locale-core
- * cooldown-core
- * discord-core
- * packet-core
- * pdc-core
- * http-core
- * script-core
+ * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding and maven.
+ *  This will need a bit of work, as I need to essentially load each module as a static reference within the plugin, as well as initialising classes that require runtime access
+ *  E.g. anything with init() methods that need to be registered with the server.
+ *  This will mean I have to have fallbacks to make sure things are not registered multiple times (this shouldn't happen if I follow my own instructions)
  */

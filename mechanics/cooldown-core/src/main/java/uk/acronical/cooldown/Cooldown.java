@@ -12,7 +12,7 @@ import java.time.Instant;
  * independent of server tick rates.
  *
  * @author Acronical
- * @since 1.0.1-SNAPSHOT
+ * @since 1.0.1
  */
 public class Cooldown {
 

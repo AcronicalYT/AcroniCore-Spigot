@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * restrictions across the plugin.
  *
  * @author Acronical
- * @since 1.0.1-SNAPSHOT
+ * @since 1.0.1
  */
 public class CooldownManager {
 

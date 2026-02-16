@@ -37,8 +37,8 @@ include 'frontend:gui-core'
 // Mechanics
 include 'mechanics'
 include 'mechanics:command-core'
+include 'mechanics:cooldown-core'
 // include 'mechanics:permission-core'
-// include 'mechanics:cooldown-core'
 // include 'mechanics:script-core'
 // include 'mechanics:chat-core'
 

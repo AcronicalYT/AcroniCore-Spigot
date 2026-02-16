@@ -16,6 +16,16 @@ import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A reflection-based framework for dynamic command registration and execution.
+ * <p>
+ * This class injects itself into the internal Bukkit {@link CommandMap} to register
+ * methods annotated with {@link Command}. It handles automatic argument parsing
+ * for common types like {@link Player}, {@code int}, and {@code boolean}.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class CommandFramework {
 
     private final Plugin plugin;
@@ -24,17 +34,16 @@ public class CommandFramework {
     private CommandMap commandMap;
 
     /**
-     * Initialises the CommandFramework with the given plugin instance.
+     * Initialises the framework and accesses the internal Bukkit command map.
+     * <p>
+     * Note: This uses reflection to access private fields within the server
+     * implementation and may require updates if the server software changes
+     * its internal structure.
      *
-     * @param plugin The plugin instance to associate with this CommandFramework.
-     * @throws IllegalArgumentException if the plugin instance is null.
-     * @throws RuntimeException if there is an error accessing the internal CommandMap.
+     * @param plugin The {@link Plugin} instance to associate with this framework.
+     * @throws RuntimeException If the internal {@link CommandMap} cannot be accessed.
      */
-    public CommandFramework(Plugin plugin) {
-        if (plugin == null) {
-            throw new IllegalArgumentException("Plugin instance cannot be null.");
-        }
-
+    public CommandFramework(@NotNull Plugin plugin) {
         this.plugin = plugin;
 
         try {
@@ -48,15 +57,11 @@ public class CommandFramework {
     }
 
     /**
-     * Registers all methods annotated with @Command from the given instance.
+     * Scans an object instance for {@link Command} annotations and registers them.
      *
-     * @param instance The object instance containing command methods to register.
+     * @param instance The object containing the command handler methods.
      */
-    public void registerCommands(Object instance) {
-        if (instance == null) {
-            throw new IllegalArgumentException("Command instance cannot be null.");
-        }
-
+    public void registerCommands(@NotNull Object instance) {
         for (Method method : instance.getClass().getDeclaredMethods()) {
             if (method.isAnnotationPresent(Command.class)) {
                 Command commandInfo = method.getAnnotation(Command.class);
@@ -71,12 +76,13 @@ public class CommandFramework {
     }
 
     /**
-     * Creates a BukkitCommand instance for the given Command annotation.
+     * Wraps the {@link Command} metadata into a {@link BukkitCommand} for registration.
      *
-     * @param commandInfo The Command annotation containing command metadata.
-     * @return A BukkitCommand instance that can be registered with the CommandMap.
+     * @param commandInfo The annotation metadata.
+     * @return A {@link BukkitCommand} ready for the internal map.
      */
-    private @NotNull BukkitCommand getBukkitCommand(Command commandInfo) {
+    @NotNull
+    private BukkitCommand getBukkitCommand(@NotNull Command commandInfo) {
         BukkitCommand bukkitCommand = new BukkitCommand(commandInfo.name().toLowerCase()) {
             @Override
             public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
@@ -96,14 +102,17 @@ public class CommandFramework {
     }
 
     /**
-     * Handles the execution of a command by invoking the corresponding method with the appropriate arguments.
+     * Dispatches the executed command to the registered method.
+     * <p>
+     * This method performs permission checks and requirement validation (such as
+     * {@code playerOnly}) before attempting to resolve method arguments.
      *
-     * @param sender The CommandSender executing the command.
-     * @param commandLabel The label of the command being executed.
-     * @param args The command arguments passed by the sender.
-     * @return true if the command was successfully executed, false otherwise.
+     * @param sender       The source of the command.
+     * @param commandLabel The alias or name used.
+     * @param args         The raw arguments provided by the sender.
+     * @return {@code true} to satisfy the Bukkit executor contract.
      */
-    private boolean handleCommand(CommandSender sender, String commandLabel, String[] args) {
+    private boolean handleCommand(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
         Method method = commandRegistry.get(commandLabel.toLowerCase());
         Object instance = commandInstances.get(commandLabel.toLowerCase());
 
@@ -129,10 +138,7 @@ public class CommandFramework {
             method.invoke(instance, invokedArgs);
         } catch (IllegalArgumentException e) {
             sender.sendMessage(StringUtils.colour("&cUsage Error: " + e.getMessage()));
-
-            if (!command.usage().isEmpty()) {
-                sender.sendMessage(StringUtils.colour("&cUsage: " + command.usage()));
-            }
+            if (!command.usage().isEmpty()) sender.sendMessage(StringUtils.colour("&cUsage: " + command.usage()));
         } catch (InvocationTargetException e) {
             sender.sendMessage(StringUtils.colour("&cAn internal error occurred while executing this command."));
             LoggerUtils.severe("Exception in command '" + commandLabel + "':");
@@ -146,12 +152,21 @@ public class CommandFramework {
     }
 
     /**
-     * Resolves the arguments for the command method based on its parameter types.
+     * Maps raw command arguments to the parameter types of the handler method.
+     * <p>
+     * Supports automatic conversion for:
+     * <ul>
+     * <li>{@link Player} (via name lookup)</li>
+     * <li>Integers and Doubles</li>
+     * <li>Booleans</li>
+     * <li>Strings</li>
+     * </ul>
      *
-     * @param method The command method to invoke.
-     * @param sender The CommandSender executing the command.
-     * @param args The command arguments passed by the sender.
-     * @return An array of objects to be passed as arguments to the command method.
+     * @param method The method to inspect.
+     * @param sender The command executor.
+     * @param args   The raw string arguments.
+     * @return An array of resolved objects for reflection invocation.
+     * @throws IllegalArgumentException If argument counts mismatch or types are invalid.
      */
     private Object[] resolveArguments(Method method, CommandSender sender, String[] args) {
         Parameter[] params = method.getParameters();
@@ -186,17 +201,14 @@ public class CommandFramework {
             if (type == int.class || type == Integer.class) {
                 try { resolved[i] = Integer.parseInt(input); }
                 catch (NumberFormatException e) { throw new IllegalArgumentException(input + " is not a valid integer."); }
-            }
-            else if (type == double.class || type == Double.class) {
+            } else if (type == double.class || type == Double.class) {
                 try { resolved[i] = Double.parseDouble(input); }
                 catch (NumberFormatException e) { throw new IllegalArgumentException(input + " is not a valid number."); }
-            }
-            else if (type == boolean.class || type == Boolean.class) {
+            } else if (type == boolean.class || type == Boolean.class) {
                 if (input.equalsIgnoreCase("true")) resolved[i] = true;
                 else if (input.equalsIgnoreCase("false")) resolved[i] = false;
                 else throw new IllegalArgumentException(input + " is not a valid boolean (true/false).");
-            }
-            else if (type == Player.class) {
+            } else if (type == Player.class) {
                 Player target = plugin.getServer().getPlayer(input);
                 if (target == null) throw new IllegalArgumentException("Player " + input + " not found.");
                 resolved[i] = target;

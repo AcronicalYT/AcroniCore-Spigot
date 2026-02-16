@@ -1,5 +1,6 @@
 package uk.acronical.redis;
 
+import org.jetbrains.annotations.NotNull;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 import uk.acronical.common.LoggerUtils;
@@ -9,6 +10,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.BiConsumer;
 
+/**
+ * A utility class for sending and receiving messages through Redis channels.
+ * <p>
+ * This class provides methods to publish messages to a channel and subscribe
+ * to channels to receive messages asynchronously. It manages the subscription
+ * lifecycle and ensures that resources are properly released when no longer needed.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class RedisMessenger {
 
     private final RedisDatabase database;
@@ -16,22 +27,22 @@ public class RedisMessenger {
     private JedisPubSub activeSubscription;
 
     /**
-     * Initialise the messenger with the db to monitor and manage.
+     * Initialises the messenger with the database instance to manage.
      *
-     * @param database The database to send/recieve messages to/from.
+     * @param database The Redis database wrapper used for messaging.
      */
-    public RedisMessenger(RedisDatabase database) {
+    public RedisMessenger(@NotNull RedisDatabase database) {
         this.database = database;
         this.subscriptionThread = Executors.newSingleThreadExecutor();
     }
 
     /**
-     * Sends a message to the specified channel.
+     * Asynchronously sends a message to the specified channel.
      *
-     * @param channel The channel to send messages to. E.g. "global-chat".
-     * @param message The message to send to the channel.
+     * @param channel The channel to target (e.g., {@code "global-chat"}).
+     * @param message The message string to broadcast.
      */
-    public void publish(String channel, String message) {
+    public void publish(@NotNull String channel, @NotNull String message) {
         CompletableFuture.runAsync(() -> {
             try (Jedis jedis = database.getResource()) {
                 jedis.publish(channel, message);
@@ -40,12 +51,16 @@ public class RedisMessenger {
     }
 
     /**
-     * Listens for messages on the specified channel.
+     * Subscribes to a channel to listen for incoming messages.
+     * <p>
+     * As Redis subscriptions are blocking operations, this method executes the
+     * listener on a dedicated background thread to prevent halting the main application.
      *
-     * @param channel The channel to listen to.
-     * @param handler The code to run when message arrives (Channel, Message).
+     * @param channel The channel to monitor.
+     * @param handler A consumer to process received messages, providing the
+     * channel name and the message content.
      */
-    public void subscribe(String channel, BiConsumer<String, String> handler) {
+    public void subscribe(@NotNull String channel, @NotNull BiConsumer<String, String> handler) {
         this.activeSubscription = new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
@@ -64,7 +79,10 @@ public class RedisMessenger {
     }
 
     /**
-     * Stop listening for messages.
+     * Unsubscribes from the active channel and shuts down the internal thread pool.
+     * <p>
+     * This should be called during the plugin shutdown phase to ensure the
+     * background thread is terminated correctly.
      */
     public void close() {
         if (activeSubscription != null) activeSubscription.unsubscribe();

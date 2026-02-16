@@ -2,27 +2,42 @@ package uk.acronical.http;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.net.http.HttpResponse;
 
+/**
+ * A wrapper for {@link HttpResponse} that provides convenience methods for
+ * processing response data and status codes.
+ * <p>
+ * This utility integrates with {@link Gson} to simplify the conversion of
+ * response bodies into JSON objects or custom Java types.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class HttpResponseWrapper {
 
     private final HttpResponse<String> rawResponse;
     private static final Gson gson = new Gson();
 
     /**
-     * Creates a new HttpResponseWrapper with the specified raw HTTP response.
+     * Initialises a new {@link HttpResponseWrapper} with the raw response.
      *
-     * @param rawResponse The raw HTTP response to be wrapped.
+     * @param rawResponse The {@link HttpResponse} received from the client.
      */
-    public HttpResponseWrapper(HttpResponse<String> rawResponse) {
+    public HttpResponseWrapper(@NotNull HttpResponse<String> rawResponse) {
         this.rawResponse = rawResponse;
     }
 
     /**
-     * Returns whether the HTTP response indicates a successful request (status code in the range 200-299).
+     * Determines if the request was successful based on the HTTP status code.
+     * <p>
+     * A request is considered successful if the status code falls within the
+     * {@code 200-299} range.
      *
-     * @return true if the response is successful, false otherwise.
+     * @return {@code true} if the request succeeded; otherwise {@code false}.
      */
     public boolean isSuccessful() {
         int statusCode = rawResponse.statusCode();
@@ -30,41 +45,45 @@ public class HttpResponseWrapper {
     }
 
     /**
-     * Returns the status code of the HTTP response.
+     * Retrieves the numerical HTTP status code.
      *
-     * @return The status code of the HTTP response.
+     * @return The status code (e.g., 200, 404, 500).
      */
     public int getStatusCode() {
         return rawResponse.statusCode();
     }
 
     /**
-     * Returns the body of the HTTP response as a string.
+     * Retrieves the raw response body as a string.
      *
-     * @return The body of the HTTP response.
+     * @return The response body, or an empty string if none exists.
      */
+    @NotNull
     public String getBody() {
         return rawResponse.body();
     }
 
     /**
-     * Parses the body of the HTTP response as a JSON object and returns it.
+     * Deserialises the response body into a {@link JsonObject}.
      *
-     * @return The body of the HTTP response as a JsonObject, or an empty JsonObject if the body is null or empty.
+     * @return A {@link JsonObject} containing the response data, or an empty
+     * object if the body is null or malformed.
      */
+    @NotNull
     public JsonObject getAsJson() {
         if (getBody() == null || getBody().isEmpty()) return new JsonObject();
         return gson.fromJson(getBody(), JsonObject.class);
     }
 
     /**
-     * Parses the body of the HTTP response as an object of the specified class and returns it.
+     * Deserialises the response body into an instance of the specified class.
      *
-     * @param clazz The class to which the body of the HTTP response should be parsed.
-     * @param <T> The type of the object to be returned.
-     * @return The body of the HTTP response parsed as an object of the specified class.
+     * @param clazz The class type to map the JSON data to.
+     * @param <T>   The resulting object type.
+     * @return An instance of {@link T} populated with the response data.
      */
-    public <T> T getAsObject(Class<T> clazz) {
+    @Nullable
+    public <T> T getAsObject(@NotNull Class<T> clazz) {
         return gson.fromJson(getBody(), clazz);
     }
 }

@@ -1,23 +1,12 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.dokka' version '1.9.20'
 }
 
 group = 'uk.acronical'
-version = '1.0.0-SNAPSHOT'
+version = '1.0.0'
 
-subprojects {
-    apply plugin: 'java-library'
-    apply plugin: 'maven-publish'
-
-    version = rootProject.version
-    group = rootProject.group
-
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
-        }
-    }
-
+allprojects {
     repositories {
         mavenCentral()
         maven {
@@ -27,6 +16,35 @@ subprojects {
         maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/groups/public/"
+        }
+    }
+}
+
+tasks.dokkaHtmlMultiModule.configure {
+    moduleName.set("AcroniCore-Spigot")
+    outputDirectory.set(layout.buildDirectory.dir("docs/api"))
+}
+
+tasks.register('prepareDocs') {
+    dependsOn 'dokkaHtmlMultiModule'
+    doLast {
+        def docsDir = layout.buildDirectory.dir("docs/api").get().asFile
+        if (!docsDir.exists()) docsDir.mkdirs()
+        new File(docsDir, "CNAME").text = "core.acronical.uk"
+    }
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'org.jetbrains.dokka'
+
+    version = rootProject.version
+    group = rootProject.group
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
         }
     }
 
@@ -42,6 +60,20 @@ subprojects {
 
     test {
         useJUnitPlatform()
+    }
+
+    tasks.matching { it.name.contains("dokkaHtmlPartial") }.configureEach {
+        dokkaSourceSets {
+            register("main") {
+                def javaDir = new File(projectDir, "src/main/java")
+                if (javaDir.exists()) {
+                    sourceRoots.from(javaDir)
+                    suppress.set(false)
+                } else {
+                    suppress.set(true)
+                }
+            }
+        }
     }
 
     publishing {

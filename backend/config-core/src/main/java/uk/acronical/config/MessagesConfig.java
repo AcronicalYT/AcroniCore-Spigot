@@ -1,27 +1,41 @@
 package uk.acronical.config;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 import uk.acronical.common.LoggerUtils;
 import uk.acronical.common.StringUtils;
 
+/**
+ * Handles retrieval of messages from a YAML configuration file, providing default values and logging warnings for missing messages.
+ * <p>
+ * This class extends {@link DefaultConfig} to provide automatic colour code
+ * translation and logging warnings when requested keys are missing from {@code messages.yml}.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class MessagesConfig extends DefaultConfig {
 
     /**
-     * Constructor for the MessagesConfig class, which extends the DefaultConfig class. This constructor initialises the MessagesConfig by calling the superclass constructor
+     * Constructs a new {@link  MessagesConfig} and initialises {@code messages.yml}.
      *
-     * @param plugin The instance of the JavaPlugin that is using this configuration. This parameter is passed to the superclass constructor
+     * @param plugin The instance of the plugin using this configuration.
      */
-    public MessagesConfig(JavaPlugin plugin) {
+    public MessagesConfig(Plugin plugin) {
         super(plugin, "messages.yml");
     }
 
     /**
-     * Retrieves a message from the configuration file based on the provided path. If the message is not found, it logs a warning and returns a default message indicating that the message is missing.
+     * Retrieves a message from the configuration and applies colour codes.
+     * <p>
+     * If the path is not found, a warning is logged via {@link LoggerUtils}
+     * and a placeholder error message is returned.
+     * </p>
      *
-     * @param path The path in the configuration file where the desired message is located. This should be a string that corresponds to the key in the YAML file for the message you want to retrieve.
-     * @return The message retrieved from the configuration file. If the message is not found, it returns a default message indicating that the message is missing, formatted with color codes.
+     * @param path The configuration path to the message.
+     * @return The colourised message, or a {@code &c} formatted error string if not found.
      */
-    public String getMessage(String path) {
+    public String getMessage(@NotNull String path) {
         String message = config.getString(path);
         if (message == null) {
             LoggerUtils.warn("Message not found for path: " + path);

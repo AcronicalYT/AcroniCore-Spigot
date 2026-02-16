@@ -2,111 +2,128 @@ package uk.acronical.task;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
+/**
+ * A central management class for scheduling and managing plugin tasks.
+ * <p>
+ * This class acts as a wrapper for the {@link org.bukkit.scheduler.BukkitScheduler},
+ * providing a simplified API for synchronous and asynchronous execution, as well
+ * as access to specialised utilities like {@link TaskChain} and {@link CountdownBuilder}.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class TaskManager {
 
     private final Plugin plugin;
 
     /**
-     * Constructs a new TaskManager for the given plugin, allowing for the scheduling of synchronous and asynchronous tasks, as well as the creation of countdowns, task chains, and conditional tasks.
+     * Initialises a new {@link TaskManager} for the specified {@link Plugin}.
      *
-     * @param plugin The plugin instance that will be used to schedule tasks on the server
+     * @param plugin The plugin instance used to schedule tasks.
      */
-    public TaskManager(Plugin plugin) {
+    public TaskManager(@NotNull Plugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * Checks if the TaskManager has been initialised with a plugin.
-     * No tasks can run if the TaskManager has not been initialised, so this method can be used to check if the TaskManager is ready to use.
+     * Verifies if the manager is ready to schedule tasks.
      *
-     * @return true if the TaskManager has been initialised, false otherwise.
+     * @return {@code true} if initialised with a valid plugin; otherwise {@code false}.
      */
     public boolean isInitialised() {
         return plugin != null;
     }
 
     /**
-     * Runs a task synchronously on the main server thread.
+     * Executes a task synchronously on the main server thread.
      *
-     * @param runnable The task to run.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask sync(Runnable runnable) {
+    public BukkitTask sync(@NotNull Runnable runnable) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTask(plugin, runnable);
     }
 
     /**
-     * Runs a task synchronously on the main server thread after a delay.
+     * Executes a task synchronously after a specified delay.
      *
-     * @param runnable The task to run.
-     * @param delay The delay in ticks before the task is run.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @param delay    The wait time in server ticks.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask sync(Runnable runnable, long delay) {
+    public BukkitTask sync(@NotNull Runnable runnable, long delay) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTaskLater(plugin, runnable, delay);
     }
 
     /**
-     * Runs a task synchronously on the main server thread after a delay and then repeatedly with a period.
+     * Executes a repeating synchronous task.
      *
-     * @param runnable The task to run.
-     * @param delay The delay in ticks before the task is first run.
-     * @param period The period in ticks between subsequent runs of the task.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @param delay    The initial wait time in ticks.
+     * @param period   The interval between executions in ticks.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask sync(Runnable runnable, long delay, long period) {
+    public BukkitTask sync(@NotNull Runnable runnable, long delay, long period) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTaskTimer(plugin, runnable, delay, period);
     }
 
     /**
-     * Runs a task asynchronously on a separate thread.
+     * Executes a task asynchronously on a separate thread pool.
      *
-     * @param runnable The task to run.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask async(Runnable runnable) {
+    public BukkitTask async(@NotNull Runnable runnable) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTaskAsynchronously(plugin, runnable);
     }
 
     /**
-     * Runs a task asynchronously on a separate thread after a delay.
+     * Executes a task asynchronously after a specified delay.
      *
-     * @param runnable The task to run.
-     * @param delay The delay in ticks before the task is run.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @param delay    The wait time in server ticks.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask async(Runnable runnable, long delay) {
+    public BukkitTask async(@NotNull Runnable runnable, long delay) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTaskLaterAsynchronously(plugin, runnable, delay);
     }
 
     /**
-     * Runs a task asynchronously on a separate thread after a delay and then repeatedly with a period.
+     * Executes a repeating asynchronous task.
      *
-     * @param runnable The task to run.
-     * @param delay The delay in ticks before the task is first run.
-     * @param period The period in ticks between subsequent runs of the task.
-     * @return A BukkitTask representing the task that was run.
+     * @param runnable The logic to execute.
+     * @param delay    The initial wait time in ticks.
+     * @param period   The interval between executions in ticks.
+     * @return The resulting {@link BukkitTask}.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public BukkitTask async(Runnable runnable, long delay, long period) {
+    public BukkitTask async(@NotNull Runnable runnable, long delay, long period) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, runnable, delay, period);
     }
 
     /**
-     * Creates a new CountdownBuilder instance.
+     * Creates a new {@link CountdownBuilder} instance.
      *
-     * @return A new CountdownBuilder instance.
+     * @return A fresh builder for second-based countdowns.
+     * @throws IllegalStateException If the manager is not initialised.
      */
     public CountdownBuilder newCountdown() {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
@@ -114,9 +131,10 @@ public class TaskManager {
     }
 
     /**
-     * Creates a new TaskChain instance.
+     * Creates a new {@link TaskChain} instance.
      *
-     * @return A new TaskChain instance.
+     * @return A fresh chain for sequencing multi-threaded operations.
+     * @throws IllegalStateException If the manager is not initialised.
      */
     public TaskChain newChain() {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
@@ -124,26 +142,30 @@ public class TaskManager {
     }
 
     /**
-     * Creates a new ConditionalTask instance.
+     * Initialises a {@link ConditionalTask}.
      *
-     * @param task The task to run while the condition is true.
-     * @param condition The condition that determines whether the task should continue running.
-     * @param onStop The action to perform when the condition becomes false and the task is stopped.
-     * @return A new ConditionalTask instance.
+     * @param task      The logic to run while the condition is met.
+     * @param condition The requirement to check before each run.
+     * @param onStop    The termination logic (may be {@code null}).
+     * @return A new {@link ConditionalTask} instance.
+     * @throws IllegalStateException If the manager is not initialised.
      */
-    public ConditionalTask conditional(Runnable task, BooleanSupplier condition, Runnable onStop) {
+    public ConditionalTask conditional(@NotNull Runnable task, @NotNull BooleanSupplier condition, Runnable onStop) {
         if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
         return new ConditionalTask(task, condition, onStop);
     }
 
     /**
-     * Creates a new CompletableFuture that runs a task asynchronously on a separate thread and completes with the result of the task.
+     * Executes a task asynchronously and returns its result via a {@link CompletableFuture}.
+     * <p>
+     * This utility bridges {@link Callable} logic with asynchronous execution,
+     * handling errors and completing the future exceptionally if the task fails.
      *
-     * @param task The task to run.
-     * @param <T> The type of the result of the task.
-     * @return A CompletableFuture that will complete with the result of the task.
+     * @param <T>  The type of result produced.
+     * @param task The logic to execute.
+     * @return A future that will complete with the task's result.
      */
-    public <T> CompletableFuture<T> supplyAsync(Callable<T> task) {
+    public <T> CompletableFuture<T> supplyAsync(@NotNull Callable<T> task) {
         CompletableFuture<T> future = new CompletableFuture<>();
         async(() -> {
             try {

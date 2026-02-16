@@ -13,69 +13,63 @@ import uk.acronical.common.StringUtils;
 
 import java.util.Arrays;
 
+/**
+ * An abstract base class representing a custom GUI.
+ * <p>
+ * This class implements {@link InventoryHolder}, allowing for easy identification
+ * of custom menus during inventory events. It provides the foundation for
+ * creating, opening, and handling interactions within a GUI.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public abstract class DefaultGui implements InventoryHolder {
 
-    /**
-     * The inventory object of the GUI.
-     */
     protected Inventory inventory;
-
-    /**
-     * The player for whom the GUI is created.
-     */
     protected final Player player;
-
-    /**
-     * The title of the GUI.
-     */
     protected final String title;
-
-    /**
-     * The size of the GUI.
-     */
     protected final int size;
 
     /**
-     * Constructor for DefaultGui.
+     * Initialises a new {@link DefaultGui}.
      *
      * @param player The player for whom the GUI is created.
-     * @param title The title of the GUI.
-     * @param size The size of the GUI.
+     * @param title  The display title (supports colour codes).
+     * @param size   The number of slots in the inventory.
      */
-    public DefaultGui(Player player, String title, int size) {
+    public DefaultGui(@NotNull Player player, @NotNull String title, int size) {
         this.player = player;
         this.title = StringUtils.colour(title);
         this.size = size;
     }
 
     /**
-     * Gets the title of the GUI.
-     *
-     * @return The title of the GUI.
+     * @return The colour-translated title of the GUI.
      */
     public String getTitle() { return title; }
 
     /**
-     * Gets the size of the GUI.
-     *
-     * @return The size of the GUI.
+     * @return The total slot count of the GUI.
      */
     public int getSize() { return size; }
 
     /**
-     * Handles menu interactions.
+     * Handles specific menu interactions defined by the subclass.
      *
-     * @param event The InventoryClickEvent.
+     * @param event The {@link InventoryClickEvent} triggered by the player.
      */
     public abstract void handleMenu(InventoryClickEvent event);
 
     /**
-     * Sets the menu items in the GUI.
+     * Populates the inventory with items.
+     * <p>
+     * This method is invoked automatically within the {@link #open()} method
+     * before the inventory is shown to the player.
      */
     public abstract void setMenuItems();
 
     /**
-     * Opens the GUI for the player.
+     * Creates the inventory and opens it for the player.
      */
     public void open() {
         inventory = player.getServer().createInventory(this, size, title);
@@ -84,14 +78,14 @@ public abstract class DefaultGui implements InventoryHolder {
     }
 
     /**
-     * Creates a GUI item with the specified material, display name, and lore.
+     * Creates a colour-translated {@link ItemStack} for use in the GUI.
      *
-     * @param material The material (type) of the item.
-     * @param displayName The display name of the item.
-     * @param lore The lore (description) of the item.
-     * @return The created ItemStack.
+     * @param material    The {@link Material} type of the item.
+     * @param displayName The display name (supports colour codes).
+     * @param lore        The lore lines (supports colour codes).
+     * @return The constructed {@link ItemStack}.
      */
-    public ItemStack createGuiItem(Material material, String displayName, String... lore) {
+    public ItemStack createGuiItem(@NotNull Material material, @NotNull String displayName, @NotNull String... lore) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
@@ -103,9 +97,9 @@ public abstract class DefaultGui implements InventoryHolder {
     }
 
     /**
-     * Gets the inventory of the GUI.
+     * Retrieves the {@link Inventory} associated with this holder.
      *
-     * @return The inventory object of the GUI.
+     * @return The {@link Inventory} object.
      */
     @NotNull
     @Override
@@ -114,16 +108,19 @@ public abstract class DefaultGui implements InventoryHolder {
     }
 
     /**
-     * Handles the closing of the inventory. (Optional to override)
+     * Handles the closing of the inventory.
+     * <p>
+     * This is an optional hook that subclasses can override to perform
+     * logic when the player exits the GUI.
      *
-     * @param event The InventoryCloseEvent.
+     * @param event The {@link InventoryCloseEvent}.
      */
     public void handleClose(InventoryCloseEvent event) { }
 
     /**
-     * Handles click events in the inventory.
+     * Routes inventory click events to the {@link #handleMenu(InventoryClickEvent)} method.
      *
-     * @param event The InventoryClickEvent.
+     * @param event The {@link InventoryClickEvent}.
      */
     public void handleClick(InventoryClickEvent event) {
         handleMenu(event);

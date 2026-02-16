@@ -1,9 +1,20 @@
 package uk.acronical.task;
 
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
+/**
+ * A fluent builder for creating and starting {@link CountdownTask} instances.
+ * <p>
+ * This utility simplifies the creation of timed countdowns by allowing
+ * method chaining for tick actions, termination logic, and cancellation hooks.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class CountdownBuilder {
 
     private final Plugin plugin;
@@ -13,19 +24,19 @@ public class CountdownBuilder {
     private Runnable onCancel;
 
     /**
-     * Creates a new CountdownBuilder for the specified plugin.
+     * Initialises a new {@link CountdownBuilder} for the specified {@link Plugin}.
      *
-     * @param plugin The plugin to run the countdown task for
+     * @param plugin The plugin instance responsible for running the countdown.
      */
-    public CountdownBuilder(Plugin plugin) {
+    public CountdownBuilder(@NotNull Plugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * Sets the number of seconds for the countdown.
+     * Sets the starting duration of the countdown.
      *
-     * @param seconds The number of seconds for the countdown
-     * @return The CountdownBuilder instance, allowing for method chaining
+     * @param seconds The number of seconds to count down from.
+     * @return The current {@link CountdownBuilder} instance for method chaining.
      */
     public CountdownBuilder from(int seconds) {
         this.seconds = seconds;
@@ -33,43 +44,46 @@ public class CountdownBuilder {
     }
 
     /**
-     * Sets the action to perform on each tick of the countdown, receiving the remaining seconds as an argument.
+     * Defines the action to perform on every second of the countdown.
      *
-     * @param onTick The action to perform on each tick of the countdown
-     * @return The CountdownBuilder instance, allowing for method chaining
+     * @param onTick A consumer receiving the remaining seconds as an integer.
+     * @return The current {@link CountdownBuilder} instance for method chaining.
      */
-    public CountdownBuilder onTick(Consumer<Integer> onTick) {
+    public CountdownBuilder onTick(@NotNull Consumer<Integer> onTick) {
         this.onTick = onTick;
         return this;
     }
 
     /**
-     * Sets the action to perform when the countdown finishes.
+     * Defines the action to perform when the countdown reaching zero.
      *
-     * @param onFinish The action to perform when the countdown finishes
-     * @return The CountdownBuilder instance, allowing for method chaining
+     * @param onFinish The logic to execute upon successful completion.
+     * @return The current {@link CountdownBuilder} instance for method chaining.
      */
-    public CountdownBuilder onFinish(Runnable onFinish) {
+    public CountdownBuilder onFinish(@Nullable Runnable onFinish) {
         this.onFinish = onFinish;
         return this;
     }
 
     /**
-     * Sets the action to perform if the countdown is cancelled.
+     * Defines the action to perform if the countdown is manually cancelled.
      *
-     * @param onCancel The action to perform if the countdown is cancelled
-     * @return The CountdownBuilder instance, allowing for method chaining
+     * @param onCancel The logic to execute upon cancellation.
+     * @return The current {@link CountdownBuilder} instance for method chaining.
      */
-    public CountdownBuilder onCancel(Runnable onCancel) {
+    public CountdownBuilder onCancel(@Nullable Runnable onCancel) {
         this.onCancel = onCancel;
         return this;
     }
 
     /**
-     * Starts the countdown task with the configured settings.
+     * Finalises the configuration and starts the {@link CountdownTask}.
+     * <p>
+     * This method schedules the task to run every 20 server ticks (1 second).
      *
-     * @return The CountdownTask that was started
+     * @return The started {@link CountdownTask} instance.
      */
+    @NotNull
     public CountdownTask start() {
         CountdownTask task = new CountdownTask(seconds, onTick, onFinish, onCancel);
         task.runTaskTimer(plugin, 0L, 20L);

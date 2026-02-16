@@ -1,6 +1,7 @@
 package uk.acronical.http;
 
 import com.google.gson.Gson;
+import org.jetbrains.annotations.NotNull;
 import uk.acronical.common.LoggerUtils;
 
 import java.net.URI;
@@ -10,6 +11,16 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * A builder for configuring and executing asynchronous HTTP requests.
+ * <p>
+ * This class wraps the standard {@link HttpClient} to provide a fluent API,
+ * including automatic JSON serialisation via {@link Gson} and integrated
+ * error logging.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class HttpBuilder {
 
     private static final HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).connectTimeout(Duration.ofSeconds(10)).build();
@@ -20,53 +31,56 @@ public class HttpBuilder {
     public HttpRequest.Builder builder;
 
     /**
-     * Creates a new HttpResponseWrapper with the specified URL.
+     * Initialises a new {@link HttpBuilder} for the target URL.
      *
      * @param url The URL to which the HTTP request will be sent.
      */
-    public HttpBuilder(String url) {
+    public HttpBuilder(@NotNull String url) {
         this.url = url;
         this.builder = HttpRequest.newBuilder().uri(URI.create(url));
     }
 
     /**
-     * Adds a header to the HTTP request.
+     * Appends a header to the HTTP request.
      *
-     * @param key The header name.
-     * @param value The header value.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param key   The header name (e.g., {@code "Authorization"}).
+     * @param value The value associated with the header.
+     * @return The current {@link HttpBuilder} instance for method chaining.
      */
-    public HttpBuilder header(String key, String value) {
+    public HttpBuilder header(@NotNull String key, @NotNull String value) {
         builder.header(key, value);
         return this;
     }
 
     /**
-     * Sets the body of the HTTP request with the provided content. The content is sent as a JSON string.
+     * Configures the request body with a raw JSON string.
+     * <p>
+     * This method automatically sets the {@code Content-Type} to {@code application/json}
+     * and switches the request method to {@code POST}.
      *
-     * @param content The content to be sent in the body of the HTTP request.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param content The JSON string to be sent.
+     * @return The current {@link HttpBuilder} instance for method chaining.
      */
-    public HttpBuilder body(String content) {
+    public HttpBuilder body(@NotNull String content) {
         builder.header("Content-Type", "application/json");
         builder.method("POST", HttpRequest.BodyPublishers.ofString(content));
         return this;
     }
 
     /**
-     * Sets the body of the HTTP request with the provided content. The content is converted to a JSON string using Gson.
+     * Serialises the provided object to JSON and sets it as the request body.
      *
-     * @param content The content to be sent in the body of the HTTP request, which will be converted to JSON.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param content The object to be serialised via {@link Gson}.
+     * @return The current {@link HttpBuilder} instance for method chaining.
      */
-    public HttpBuilder body(Object content) {
+    public HttpBuilder body(@NotNull Object content) {
         return body(gson.toJson(content));
     }
 
     /**
-     * Sends the HTTP request asynchronously and returns a CompletableFuture that will complete with an HttpResponseWrapper containing the response.
+     * Executes a {@code GET} request asynchronously.
      *
-     * @return A CompletableFuture that will complete with an HttpResponseWrapper containing the response from the HTTP request.
+     * @return A {@link CompletableFuture} that completes with an {@link HttpResponseWrapper}.
      */
     public CompletableFuture<HttpResponseWrapper> get() {
         builder.GET();
@@ -74,9 +88,11 @@ public class HttpBuilder {
     }
 
     /**
-     * Sends the HTTP request asynchronously and returns a CompletableFuture that will complete with an HttpResponseWrapper containing the response. If the method is not set to POST, it defaults to POST with no body.
+     * Executes a {@code POST} request asynchronously.
+     * <p>
+     * If no body has been specified, an empty body publisher is utilised.
      *
-     * @return A CompletableFuture that will complete with an HttpResponseWrapper containing the response from the HTTP request.
+     * @return A {@link CompletableFuture} that completes with an {@link HttpResponseWrapper}.
      */
     public CompletableFuture<HttpResponseWrapper> post() {
         if (builder.build().method().equalsIgnoreCase("GET")) builder.POST(HttpRequest.BodyPublishers.noBody());
@@ -84,9 +100,10 @@ public class HttpBuilder {
     }
 
     /**
-     * Sends the HTTP request asynchronously and returns a CompletableFuture that will complete with an HttpResponseWrapper containing the response.
+     * Dispatches the request through the shared {@link HttpClient}.
      *
-     * @return A CompletableFuture that will complete with an HttpResponseWrapper containing the response from the HTTP request.
+     * @return A {@link CompletableFuture} containing the wrapped response,
+     * or {@code null} if an exception occurs.
      */
     private CompletableFuture<HttpResponseWrapper> sendAsync() {
         return client.sendAsync(builder.build(), HttpResponse.BodyHandlers.ofString()).thenApply(HttpResponseWrapper::new).exceptionally(ex -> {

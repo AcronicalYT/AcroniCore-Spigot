@@ -1,65 +1,79 @@
 package uk.acronical.http;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.net.http.HttpRequest;
 
+/**
+ * A static factory class for initiating HTTP requests.
+ * <p>
+ * This class provides a simplified interface for creating {@link HttpBuilder}
+ * instances with pre-configured HTTP methods.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class Http {
 
     /**
-     * Creates a new HttpBuilder with the specified URL.
+     * Initialises a new {@link HttpBuilder} with the specified URL.
      *
-     * @param url The URL to which the HTTP request will be sent.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param url The target URL for the HTTP request.
+     * @return A new {@link HttpBuilder} instance for further configuration.
      */
-    public static HttpBuilder request(String url) {
+    public static HttpBuilder request(@NotNull String url) {
         return new HttpBuilder(url);
     }
 
     /**
-     * Creates a new HttpBuilder with the specified URL and sets the HTTP method to GET.
+     * Initialises a new {@link HttpBuilder} pre-configured with the {@code GET} method.
      *
-     * @param url The URL to which the HTTP request will be sent.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param url The target URL for the request.
+     * @return A new {@link HttpBuilder} instance.
      */
-    public static HttpBuilder get(String url) {
+    public static HttpBuilder get(@NotNull String url) {
         HttpBuilder builder = new HttpBuilder(url);
         builder.builder.GET();
         return builder;
     }
 
     /**
-     * Creates a new HttpBuilder with the specified URL and sets the HTTP method to POST.
+     * Initialises a new {@link HttpBuilder} pre-configured with the {@code POST} method.
+     * <p>
+     * By default, this is initialised with an empty body publisher.
      *
-     * @param url The URL to which the HTTP request will be sent.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param url The target URL for the request.
+     * @return A new {@link HttpBuilder} instance.
      */
-    public static HttpBuilder post(String url) {
+    public static HttpBuilder post(@NotNull String url) {
         HttpBuilder builder = new HttpBuilder(url);
         builder.builder.POST(HttpRequest.BodyPublishers.noBody());
         return builder;
     }
 
     /**
-     * Creates a new HttpBuilder with the specified URL and sets the HTTP method to PUT.
+     * Initialises a new {@link HttpBuilder} pre-configured with the {@code PUT} method.
+     * <p>
+     * By default, this is initialised with an empty body publisher.
      *
-     * @param url The URL to which the HTTP request will be sent.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param url The target URL for the request.
+     * @return A new {@link HttpBuilder} instance.
      */
-    public static HttpBuilder put(String url) {
+    public static HttpBuilder put(@NotNull String url) {
         HttpBuilder builder = new HttpBuilder(url);
         builder.builder.PUT(HttpRequest.BodyPublishers.noBody());
         return builder;
     }
 
     /**
-     * Creates a new HttpBuilder with the specified URL and sets the HTTP method to DELETE.
+     * Initialises a new {@link HttpBuilder} pre-configured with the {@code DELETE} method.
      *
-     * @param url The URL to which the HTTP request will be sent.
-     * @return A new HttpBuilder instance for chaining further configurations.
+     * @param url The target URL for the request.
+     * @return A new {@link HttpBuilder} instance.
      */
-    public static HttpBuilder delete(String url) {
+    public static HttpBuilder delete(@NotNull String url) {
         HttpBuilder builder = new HttpBuilder(url);
         builder.builder.DELETE();
         return builder;
     }
-
 }

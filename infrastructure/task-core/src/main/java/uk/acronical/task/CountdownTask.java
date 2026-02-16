@@ -1,10 +1,20 @@
 package uk.acronical.task;
 
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
+/**
+ * A specialised {@link BukkitRunnable} that facilitates a numerical countdown.
+ * <p>
+ * This task decrements its internal counter on every run, triggering a tick
+ * consumer until it reaches zero, at which point it executes the finish logic
+ * and terminates.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class CountdownTask extends BukkitRunnable {
 
     private int current;
@@ -13,14 +23,14 @@ public class CountdownTask extends BukkitRunnable {
     private final Runnable cancel;
 
     /**
-     * Constructs a new CountdownTask with the specified starting count, tick action, finish action, and cancel action.
+     * Initialises a new {@link CountdownTask}.
      *
-     * @param start  the starting count for the countdown
-     * @param tick   the action to execute on each tick of the countdown, accepting the current count as an argument
-     * @param finish the action to execute when the countdown reaches zero
-     * @param cancel the action to execute if the countdown is cancelled before reaching zero
+     * @param start  The starting value for the countdown.
+     * @param tick   The logic to execute on each second, receiving the current count.
+     * @param finish The logic to execute when the countdown naturally reaches zero.
+     * @param cancel The logic to execute if the task is cancelled before completion.
      */
-    public CountdownTask(int start, Consumer<Integer> tick, Runnable finish, Runnable cancel) {
+    public CountdownTask(int start, @Nullable Consumer<Integer> tick, @Nullable Runnable finish, @Nullable Runnable cancel) {
         this.current = start;
         this.tick = tick;
         this.finish = finish;
@@ -28,7 +38,11 @@ public class CountdownTask extends BukkitRunnable {
     }
 
     /**
-     * Runs the countdown task, decrementing the current count each time it is called. If the current count reaches zero, the finish action is executed and the task is cancelled. If the task is cancelled before reaching zero, the cancel action is executed.
+     * Executes the countdown logic.
+     * <p>
+     * On each run, the {@code tick} consumer is notified of the current count.
+     * Once the counter reaches zero, the {@code finish} action is executed and
+     * the task is cancelled.
      */
     @Override
     public void run() {
@@ -43,7 +57,10 @@ public class CountdownTask extends BukkitRunnable {
     }
 
     /**
-     * Cancels the countdown task, executing the cancel action if the current count is greater than zero.
+     * Prematurely cancels the countdown.
+     * <p>
+     * If the countdown has not yet reached zero, the {@code cancel} action
+     * is triggered before the task is stopped.
      */
     @Override
     public void cancel() {

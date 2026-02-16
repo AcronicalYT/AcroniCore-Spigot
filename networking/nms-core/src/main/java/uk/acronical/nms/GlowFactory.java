@@ -2,23 +2,37 @@ package uk.acronical.nms;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 
+/**
+ * A factory class for manipulating the glowing effect through NMS packets.
+ * <p>
+ * This utility allows for per-viewer glow colours by creating temporary,
+ * client-side scoreboard teams via the {@code PacketPlayOutScoreboardTeam} packet.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class GlowFactory {
 
     /**
-     * Sets the glow effect for a target player as seen by a viewer player, using the specified glow color.
+     * Sets a viewer-specific glow colour for a target player.
+     * <p>
+     * Note: This method utilises reflection to access internal server classes.
+     * If the required NMS classes are missing, it suggests the server version
+     * is incompatible with this implementation.
      *
-     * @param viewer The player who will see the glow effect on the target player.
-     * @param target The player who will have the glow effect applied to them.
-     * @param glowColour The color of the glow effect to apply to the target player.
-     * @throws ClassNotFoundException If the required NMS classes cannot be found, which may indicate that the plugin is not compatible with the server version.
+     * @param viewer     The player who will perceive the glow effect.
+     * @param target     The player who will appear to be glowing.
+     * @param glowColour The {@link ChatColor} to be applied to the glow outline.
+     * @throws ClassNotFoundException If internal NMS classes cannot be found.
      */
-    public static void setGlow(Player viewer, Player target, ChatColor glowColour) throws ClassNotFoundException {
+    public static void setGlow(@NotNull Player viewer, @NotNull Player target, @NotNull ChatColor glowColour) throws ClassNotFoundException {
         try {
             Class<?> packetClass = ReflectionUtils.getNMSClass("PacketPlayOutScoreboardTeam");
             Class<?> teamClass = ReflectionUtils.getNMSClass("ScoreboardTeam");
@@ -28,6 +42,7 @@ public class GlowFactory {
             Object team = teamClass.getConstructor(scoreboardClass, String.class).newInstance(scoreboard, glowColour.name());
 
             Method addPlayer = teamClass.getMethod("getPlayerNameSet");
+            @SuppressWarnings("unchecked")
             Collection<String> players = (Collection<String>) addPlayer.invoke(team);
             players.add(target.getName());
 

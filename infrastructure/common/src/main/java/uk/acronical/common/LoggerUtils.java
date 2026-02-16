@@ -1,9 +1,19 @@
 package uk.acronical.common;
 
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.logging.Level;
 
+/**
+ * A utility class for standardised plugin logging.
+ * <p>
+ * This class provides a wrapper around the {@link java.util.logging.Logger},
+ * automatically applying prefixes and colour translation to all console messages.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class LoggerUtils {
 
     private static Plugin plugin;
@@ -11,82 +21,90 @@ public class LoggerUtils {
     private static String prefix = "";
 
     /**
-     * Initialise the LoggerUtils with only the plugin instance.
-     * This will use the default prefix instance name for log messages. (the plugin name in square brackets)
+     * Initialises the {@link LoggerUtils} with a plugin instance.
+     * <p>
+     * This setup uses the default prefix format: {@code [PluginName]}.
      *
-     * @param instance The plugin instance to use for logging.
+     * @param instance The {@link Plugin} instance to use for logging.
      */
-    public static void init(Plugin instance) {
+    public static void init(@NotNull Plugin instance) {
         plugin = instance;
         prefix = "[" + instance.getName() + "] ";
     }
 
     /**
-     * Initialise the LoggerUtils with the plugin instance and a prefix for log messages.
-     * You only need to use this method to set the prefix if you want to use a custom prefix for your log messages.
+     * Initialises the {@link LoggerUtils} with a plugin instance and a custom prefix.
      *
-     * @param instance The plugin instance to use for logging.
-     * @param preferredPrefix A string prefix to prepend to all log messages.
+     * @param instance        The {@link Plugin} instance to use for logging.
+     * @param preferredPrefix A custom string to prepend to all log messages.
      */
-    public static void init(Plugin instance, String preferredPrefix) {
+    public static void init(@NotNull Plugin instance, @NotNull String preferredPrefix) {
         plugin = instance;
         prefix = preferredPrefix;
     }
 
     /**
-     * Set the debug mode for the logger. When debug mode is enabled, debug messages will be logged to the console.
+     * Toggles the debug mode for the logger.
+     * <p>
+     * When enabled, messages sent via {@link #debug(String)} will be processed.
      *
-     * @param status True to enable debug mode, false to disable it.
+     * @param status {@code true} to enable debug output, {@code false} to disable.
      */
     public static void setDebugMode(boolean status) {
         debugMode = status;
     }
 
     /**
-     * Log an informational message to the console. Informational messages are logged at the INFO level.
+     * Logs an informational message at the {@link Level#INFO} level.
      *
-     * @param message The informational message to log.
+     * @param message The message to log.
      */
-    public static void info(String message) {
+    public static void info(@NotNull String message) {
         log(Level.INFO, message);
     }
 
     /**
-     * Log a warning message to the console. Warning messages are logged at the WARNING level.
+     * Logs a warning message at the {@link Level#WARNING} level.
      *
-     * @param message The warning message to log.
+     * @param message The message to log.
      */
-    public static void warn(String message) {
+    public static void warn(@NotNull String message) {
         log(Level.WARNING, message);
     }
 
     /**
-     * Log a severe error message to the console. Severe messages are logged at the SEVERE level.
+     * Logs a severe error message at the {@link Level#SEVERE} level.
      *
-     * @param message The severe error message to log.
+     * @param message The message to log.
      */
-    public static void severe(String message) {
+    public static void severe(@NotNull String message) {
         log(Level.SEVERE, message);
     }
 
     /**
-     * Log a debug message to the console if debug mode is enabled. Debug messages are logged at the FINE level.
+     * Logs a debug message if debug mode is currently enabled.
+     * <p>
+     * Debug messages are logged at the {@link Level#FINE} level.
      *
-     * @param message The debug message to log.
+     * @param message The message to log.
      */
-    public static void debug(String message) {
+    public static void debug(@NotNull String message) {
         if (plugin != null && debugMode) {
             log(Level.FINE, message);
         }
     }
 
     /**
-     * Log a message to the console with the specified log level.
+     * Dispatches a message to the console with a specific {@link Level}.
+     * <p>
+     * The message is automatically prefixed and colour-translated via
+     * {@link StringUtils#colour(String)}.
      *
-     * @param level The log level to use (e.g., INFO, WARNING, SEVERE).
+     * @param level   The {@link Level} of the log entry.
      * @param message The message to log.
+     * @throws IllegalStateException If the utility has not been initialised.
      */
-    public static void log(Level level, String message) {
+    public static void log(@NotNull Level level, @NotNull String message) {
         if (plugin == null) {
             throw new IllegalStateException("LoggerUtils has not been initialised. Call LoggerUtils.init() with a plugin instance before using this method.");
         }

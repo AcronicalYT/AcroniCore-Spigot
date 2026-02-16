@@ -2,11 +2,21 @@ package uk.acronical.task;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
+import org.jetbrains.annotations.NotNull;
 import uk.acronical.common.LoggerUtils;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * A utility for sequencing synchronous and asynchronous tasks with optional delays.
+ * <p>
+ * This class facilitates a "fluent" approach to task scheduling, allowing
+ * developers to chain operations together without nested callbacks.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class TaskChain {
 
     private final Plugin plugin;
@@ -14,44 +24,48 @@ public class TaskChain {
     private final BukkitScheduler scheduler;
 
     /**
-     * Constructs a new TaskChain for the given plugin, allowing for the chaining of synchronous and asynchronous tasks with optional delays.
+     * Initialises a new {@link TaskChain} for the specified {@link Plugin}.
      *
-     * @param plugin The plugin instance that will be used to schedule tasks on the server
+     * @param plugin The plugin instance used to schedule tasks.
      */
-    public TaskChain(Plugin plugin) {
+    public TaskChain(@NotNull Plugin plugin) {
         this.plugin = plugin;
         this.scheduler = plugin.getServer().getScheduler();
     }
 
     /**
-     * Adds a task to the chain that will run synchronously on the main server thread.
-     * Useful for tasks that need to interact with the Minecraft server or Bukkit API, as these operations must be performed on the main thread to avoid concurrency issues.
+     * Appends a synchronous task to the chain.
+     * <p>
+     * Synchronous tasks run on the main server thread and are safe for
+     * interacting with the Bukkit API and Minecraft world state.
      *
-     * @param task The task to run.
-     * @return The TaskChain instance, allowing for method chaining.
+     * @param task The logic to execute.
+     * @return The current {@link TaskChain} instance for method chaining.
      */
-    public TaskChain sync(Runnable task) {
+    public TaskChain sync(@NotNull Runnable task) {
         chainLink.add(new ChainLink(task, true, 0));
         return this;
     }
 
     /**
-     * Adds a task to the chain that will run asynchronously on a separate thread.
-     * Useful for tasks that may take a long time to complete and would otherwise block the main server thread, such as database operations or network requests.
+     * Appends an asynchronous task to the chain.
+     * <p>
+     * Asynchronous tasks run on a separate thread pool. This is ideal for
+     * blocking operations such as database queries or network requests.
      *
-     * @param task The task to run.
-     * @return The TaskChain instance, allowing for method chaining.
+     * @param task The logic to execute.
+     * @return The current {@link TaskChain} instance for method chaining.
      */
-    public TaskChain async(Runnable task) {
+    public TaskChain async(@NotNull Runnable task) {
         chainLink.add(new ChainLink(task, false, 0));
         return this;
     }
 
     /**
-     * Adds a delay to the chain, causing the next task to run after a specified number of ticks.
+     * Introduces a pause in the execution chain.
      *
-     * @param ticks The delay in ticks before the next task is run.
-     * @return The TaskChain instance, allowing for method chaining.
+     * @param ticks The duration to wait before the next link, measured in server ticks.
+     * @return The current {@link TaskChain} instance for method chaining.
      */
     public TaskChain delay(long ticks) {
         chainLink.add(new ChainLink(null, true, ticks));
@@ -59,13 +73,18 @@ public class TaskChain {
     }
 
     /**
-     * Executes the tasks in the chain in the order they were added, respecting the specified delays and execution contexts (synchronous or asynchronous).
-     * This method should be called after all desired tasks and delays have been added to the chain.
+     * Starts the execution of the chain.
+     * <p>
+     * Tasks are processed sequentially in the order they were added. Note that
+     * this method consumes the internal queue; the chain cannot be re-executed.
      */
     public void execute() {
         runNextLink();
     }
 
+    /**
+     * Polls the next link from the queue and determines the execution timing.
+     */
     private void runNextLink() {
         ChainLink link = chainLink.poll();
 
@@ -76,9 +95,9 @@ public class TaskChain {
     }
 
     /**
-     * Processes a single link in the chain, executing the task if it exists and then proceeding to the next link.
+     * Processes a single {@link ChainLink}, handling thread context and error catching.
      *
-     * @param link The ChainLink to process, which may contain a task to run and a delay before the next task is executed.
+     * @param link The link to process.
      */
     private void processLink(ChainLink link) {
         if (link.task == null) {
@@ -101,11 +120,11 @@ public class TaskChain {
     }
 
     /**
-     * A record representing a single link in the task chain, containing the task to execute, whether it should run synchronously or asynchronously, and any delay before the next task is executed.
+     * A record representing an individual segment of the execution chain.
      *
-     * @param task  The Runnable task to execute. This may be null if the link is only meant to introduce a delay before the next task.
-     * @param sync  A boolean indicating whether the task should be run synchronously on the main server thread (true) or asynchronously on a separate thread (false).
-     * @param delay The number of ticks to wait before executing the next task in the chain after this one is completed. This allows for scheduling tasks with specific timing between them.
+     * @param task  The {@link Runnable} to execute (may be null for delays).
+     * @param sync  Whether the task requires the main server thread.
+     * @param delay The delay in ticks before proceeding to the next link.
      */
     private record ChainLink(Runnable task, boolean sync, long delay) {}
 }

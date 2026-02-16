@@ -2,25 +2,35 @@ package uk.acronical.sql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * Manages SQL database connectivity using the HikariCP connection pool.
+ * <p>
+ * This class abstracts the setup for both remote MySQL/MariaDB databases and
+ * local SQLite files, providing a unified way to retrieve thread-safe connections.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class SqlDatabase {
 
     private HikariDataSource dataSource;
 
     /**
-     * Connects to a remote database using {@code Hikari} and sets the {@code dataSource} variable.
+     * Initialises a connection pool to a remote MySQL or MariaDB database.
      *
-     * @param host The remote database hostname or ip address.
-     * @param port The remote database port number.
-     * @param database The remote database name.
-     * @param user The remote database access user.
-     * @param password The remote database access password/token.
+     * @param host     The hostname or IP address of the database server.
+     * @param port     The port number the server is listening on.
+     * @param database The name of the specific database to access.
+     * @param user     The username used for authentication.
+     * @param password The password or token used for authentication.
      */
-    public void connect(String host, int port, String database, String user, String password) {
+    public void connect(@NotNull String host, int port, @NotNull String database, @NotNull String user, @NotNull String password) {
         HikariConfig config = new HikariConfig();
 
         config.setPoolName("AcroniCore-SQL-Pool");
@@ -37,12 +47,12 @@ public class SqlDatabase {
     }
 
     /**
-     * Connects to a local db file, like the one found in SQLite.
+     * Initialises a connection pool for a local SQLite database file.
      *
-     * @param folder The folder object in which the .db file is stored.
-     * @param fileName The name of the .db file.
+     * @param folder   The directory where the database file should be stored.
+     * @param fileName The name of the database file (excluding the {@code .db} extension).
      */
-    public void connect(File folder, String fileName) {
+    public void connect(@NotNull File folder, @NotNull String fileName) {
         if (!folder.exists()) folder.mkdirs();
 
         HikariConfig config = new HikariConfig();
@@ -55,10 +65,13 @@ public class SqlDatabase {
     }
 
     /**
-     * Gets the current connection for the database.
+     * Retrieves a {@link Connection} from the pool.
+     * <p>
+     * Connections retrieved from this method should be closed immediately after
+     * use (ideally within a try-with-resources block) to return them to the pool.
      *
-     * @return Returns the current connection.
-     * @throws SQLException Exception when database is not connected or accessible.
+     * @return A valid {@link Connection} instance.
+     * @throws SQLException If the pool is uninitialised, closed, or a database access error occurs.
      */
     public Connection getConnection() throws SQLException {
         if (dataSource == null) throw new SQLException("Unable to connect to the database!");
@@ -66,7 +79,10 @@ public class SqlDatabase {
     }
 
     /**
-     * Closes the current connection.
+     * Shuts down the connection pool and releases all active connections.
+     * <p>
+     * This should be invoked during the application shutdown phase to ensure
+     * all database resources are gracefully released.
      */
     public void close() {
         if (dataSource != null && !dataSource.isClosed()) {

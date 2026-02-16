@@ -1,8 +1,18 @@
 package uk.acronical.sql;
 
+import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A utility class for building SQL statements to create tables using a fluent API.
+ * <p>
+ * This builder allows for the programmatic definition of table structures,
+ * supporting column definitions, constraints, and primary keys through method chaining.
+ *
+ * @author Acronical
+ * @since 1.0.0
+ */
 public class TableBuilder {
 
     private final String tableName;
@@ -10,35 +20,35 @@ public class TableBuilder {
     private String primaryKey;
 
     /**
-     * Creates a new TableBuilder for the specified table name.
+     * Initialises a new {@link TableBuilder} for the specified table.
      *
      * @param tableName The name of the table to be created.
      */
-    public TableBuilder(String tableName) {
+    public TableBuilder(@NotNull String tableName) {
         this.tableName = tableName;
     }
 
     /**
-     * Adds a column to the table with the specified name and data type.
+     * Adds a column to the table definition.
      *
-     * @param columnName The name of the column to be added.
-     * @param dataType The data type of the column (e.g., "VARCHAR(255)", "INT", etc.).
-     * @return The current TableBuilder instance for method chaining.
+     * @param columnName The name of the column.
+     * @param dataType   The SQL data type (e.g., {@code "VARCHAR(255)"} or {@code "INT"}).
+     * @return The current {@link TableBuilder} instance for method chaining.
      */
-    public TableBuilder addColumn(String columnName, String dataType) {
+    public TableBuilder addColumn(@NotNull String columnName, @NotNull String dataType) {
         columns.add(columnName + " " + dataType);
         return this;
     }
 
     /**
-     * Adds a column to the table with the specified name, data type, and constraints.
+     * Adds a column to the table definition with additional constraints.
      *
-     * @param columnName The name of the column to be added.
-     * @param dataType The data type of the column (e.g., "VARCHAR(255)", "INT", etc.).
-     * @param constraints Any additional constraints for the column (e.g., "NOT NULL", "UNIQUE", etc.).
-     * @return The current TableBuilder instance for method chaining.
+     * @param columnName  The name of the column.
+     * @param dataType    The SQL data type (e.g., {@code "TEXT"}).
+     * @param constraints SQL constraints (e.g., {@code "NOT NULL"} or {@code "UNIQUE"}).
+     * @return The current {@link TableBuilder} instance for method chaining.
      */
-    public TableBuilder addColumn(String columnName, String dataType, String constraints) {
+    public TableBuilder addColumn(@NotNull String columnName, @NotNull String dataType, @NotNull String constraints) {
         columns.add(columnName + " " + dataType + " " + constraints);
         return this;
     }
@@ -46,18 +56,18 @@ public class TableBuilder {
     /**
      * Sets the primary key for the table.
      *
-     * @param columnName The name of the column to be set as the primary key.
-     * @return The current TableBuilder instance for method chaining.
+     * @param columnName The name of the column to be designated as the primary key.
+     * @return The current {@link TableBuilder} instance for method chaining.
      */
-    public TableBuilder setPrimaryKey(String columnName) {
+    public TableBuilder setPrimaryKey(@NotNull String columnName) {
         this.primaryKey = columnName;
         return this;
     }
 
     /**
-     * Builds the SQL statement for creating the table based on the specified columns and primary key.
+     * Constructs the {@code CREATE TABLE IF NOT EXISTS} SQL statement.
      *
-     * @return The SQL statement for creating the table.
+     * @return A formatted SQL string based on the defined columns and primary key.
      */
     public String build() {
         StringBuilder sql = new StringBuilder("CREATE TABLE IF NOT EXISTS ");
@@ -76,10 +86,12 @@ public class TableBuilder {
     }
 
     /**
-     * Executes the SQL statement to create the table using the provided SqlExecutor.
-     * This is a helper method that combines the building and execution of the SQL statement in one step.
+     * Builds and executes the creation statement asynchronously.
+     * <p>
+     * This is a convenience method that passes the generated SQL from {@link #build()}
+     * to the provided {@link SqlExecutor}.
      *
-     * @param executor The SqlExecutor instance used to execute the SQL statement for creating the table.
+     * @param executor The executor used to run the creation query.
      */
     public void create(SqlExecutor executor) {
         executor.update(this.build());

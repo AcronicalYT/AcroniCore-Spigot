@@ -9,7 +9,7 @@ include 'infrastructure:common'
 include 'infrastructure:task-core'
 include 'infrastructure:error-core'
 include 'infrastructure:inject-core'
-// include 'infrastructure:updater-core'
+include 'infrastructure:updater-core'
 
 // Backend
 include 'backend'

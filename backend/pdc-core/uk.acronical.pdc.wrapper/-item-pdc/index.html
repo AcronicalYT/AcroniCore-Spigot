@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ItemPdc</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.1
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":backend:pdc-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="pdc-core::uk.acronical.pdc.wrapper/ItemPdc///PointingToDeclaration//888011805">
+  <div class="breadcrumbs"><a href="../../index.html">pdc-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.pdc.wrapper</a><span class="delimiter">/</span><span class="current">ItemPdc</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Item</span><wbr><span><span>Pdc</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">ItemPdc</a> : <a href="../-pdc-wrapper/index.html">PdcWrapper</a><span class="token operator">&lt;</span><a href="../-pdc-wrapper/index.html">T</a><span class="token operator">&gt; </span></div><p class="paragraph">A specialised wrapper for managing persistent data on ItemStack instances. </p><p class="paragraph"> This class handles the retrieval and re-application of ItemMeta to ensure that data modifications are correctly saved to the item.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.1</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="301461624%2FConstructors%2F888011805" anchor-label="ItemPdc" id="301461624%2FConstructors%2F888011805" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":backend:pdc-core:dokkaHtmlPartial/main" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-item-pdc.html"><span>Item</span><wbr><span><span>Pdc</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="301461624%2FConstructors%2F888011805"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pdcService<span class="token operator">: </span><a href="../../uk.acronical.pdc/-pdc-service/index.html">PdcService</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span>ItemStack</span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises a new <a href="index.html">ItemPdc</a> wrapper for the specified item.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1622271171%2FFunctions%2F888011805" anchor-label="get" id="1622271171%2FFunctions%2F888011805" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":backend:pdc-core:dokkaHtmlPartial/main" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-pdc-wrapper/get.html"><span><span>get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1622271171%2FFunctions%2F888011805"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../-pdc-wrapper/get.html">Z</a><span class="token operator">&gt; </span><a href="../-pdc-wrapper/get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="../-pdc-wrapper/get.html">Z</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-pdc-wrapper/get.html">Z</a></div><div class="brief ">Retrieves a value from the persistent container.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-772019046%2FFunctions%2F888011805" anchor-label="getOrDefault" id="-772019046%2FFunctions%2F888011805" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":backend:pdc-core:dokkaHtmlPartial/main" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-pdc-wrapper/get-or-default.html"><span>get</span><wbr><span>Or</span><wbr><span><span>Default</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-772019046%2FFunctions%2F888011805"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../-pdc-wrapper/get-or-default.html">Z</a><span class="token operator">&gt; </span><a href="../-pdc-wrapper/get-or-default.html"><span class="token function">getOrDefault</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="../-pdc-wrapper/get-or-default.html">Z</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">defaultValue<span class="token operator">: </span><a href="../-pdc-wrapper/get-or-default.html">Z</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-pdc-wrapper/get-or-default.html">Z</a></div><div class="brief ">Retrieves a value from the container or returns a default if missing.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1471802092%2FFunctions%2F888011805" anchor-label="has" id="1471802092%2FFunctions%2F888011805" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":backend:pdc-core:dokkaHtmlPartial/main" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-pdc-wrapper/has.html"><span><span>has</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1471802092%2FFunctions%2F888011805"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-pdc-wrapper/has.html"><span class="token function">has</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks if the container holds a specific key with the given type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1825144131%2FFunctions%2F888011805" anchor-label="set" id="-1825144131%2FFunctions%2F888011805" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":backend:pdc-core:dokkaHtmlPartial/main" data-filterable-set=":backend:pdc-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-pdc-wrapper/set.html"><span><span>set</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1825144131%2FFunctions%2F888011805"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":backend:pdc-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../-pdc-wrapper/set.html">Z</a><span class="token operator">&gt; </span><a href="../-pdc-wrapper/set.html"><span class="token function">set</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="../-pdc-wrapper/set.html">Z</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Stores a value in the persistent container.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

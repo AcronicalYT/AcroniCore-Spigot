@@ -13,15 +13,18 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * A reflection-based framework for dynamic command registration and execution.
  * <p>
- * This class injects itself into the internal Bukkit {@link CommandMap} to register
+ * This framework injects itself into the internal Bukkit {@link CommandMap} to register
  * methods annotated with {@link Command}. It handles automatic argument parsing
- * for common types like {@link Player}, {@code int}, and {@code boolean}.
+ * for common types such as {@link Player}, {@code int}, and {@code boolean}.
  *
  * @author Acronical
  * @since 1.0.0
@@ -34,9 +37,9 @@ public class CommandFramework {
     private CommandMap commandMap;
 
     /**
-     * Initialises the framework and accesses the internal Bukkit command map.
+     * Initialises the framework and accesses the internal Bukkit {@link CommandMap}.
      * <p>
-     * Note: This uses reflection to access private fields within the server
+     * Note: This utilises reflection to access private fields within the server
      * implementation and may require updates if the server software changes
      * its internal structure.
      *
@@ -87,6 +90,11 @@ public class CommandFramework {
             @Override
             public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
                 return handleCommand(sender, commandLabel, args);
+            }
+
+            @Override
+            public @NotNull List<String> tabComplete(@NotNull CommandSender sender, @NotNull String alias, @NotNull String[] args) {
+                return handleTabComplete(sender, alias, args);
             }
         };
 
@@ -217,5 +225,43 @@ public class CommandFramework {
             }
         }
         return resolved;
+    }
+
+    /**
+     * Provides context-aware tab completion suggestions based on parameter types.
+     *
+     * @return A filtered list of suggestions matching the current input.
+     */
+    private List<String> handleTabComplete(CommandSender sender, String alias, String[] args) {
+        Method method = commandRegistry.get(alias.toLowerCase());
+        if (method == null) return List.of();
+
+        int argIndex = args.length - 1;
+        Parameter[] params = method.getParameters();
+
+        int paramIndex = argIndex + 1;
+        if (paramIndex >= params.length) return List.of();
+
+        Class<?> type = params[paramIndex].getType();
+        String currentInput = args[argIndex].toLowerCase();
+
+        List<String> suggestions = new ArrayList<>();
+
+        if (type == Player.class) {
+            for (Player player : plugin.getServer().getOnlinePlayers()) {
+                if (player.getName().toLowerCase().startsWith(currentInput)) {
+                    suggestions.add(player.getName());
+                }
+            }
+        } else if (type.isEnum()) {
+            for (Object constant : type.getEnumConstants()) suggestions.add(constant.toString());
+        } else if (type == boolean.class || type == Boolean.class) {
+            suggestions.add("true");
+            suggestions.add("false");
+        } else {
+            return List.of();
+        }
+
+        return suggestions.stream().filter(s -> s.toLowerCase().startsWith(currentInput)).collect(Collectors.toList());
     }
 }

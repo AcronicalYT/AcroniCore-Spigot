@@ -57,10 +57,10 @@ public class ErrorService {
         uploader.upload("Error Report - " + plugin.getName(), fullReport).thenAccept(url -> {
             if (url != null) {
                 LoggerUtils.severe("Error report uploaded: " + url);
-                callback.accept(url);
+                if (callback != null) callback.accept(url);
             } else {
                 LoggerUtils.severe("Failed to upload error report.");
-                callback.accept(null);
+                if (callback != null) callback.accept(null);
             }
         });
     }

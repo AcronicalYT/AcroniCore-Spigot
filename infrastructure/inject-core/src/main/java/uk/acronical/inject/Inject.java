@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 /**
  * Marks a field to be automatically populated by the dependency injection container.
  * <p>
- * When a class is processed by the injector, fields annotated with {@code @Inject} 
- * will be assigned their corresponding registered instances, eliminating the 
+ * When a class is processed by the injector, fields annotated with {@code @Inject}
+ * will be assigned their corresponding registered instances, eliminating the
  * need for manual assignment or complex constructor chaining.
  *
  * @author Acronical

@@ -1,5 +1,8 @@
 rootProject.name = 'AcroniCore-Spigot'
 
+// Companion plugin
+//include 'companion'
+
 // Includes everything
 include 'everything'
 
@@ -45,8 +48,8 @@ include 'mechanics:script-core'
 // Environment
 include 'environment'
 include 'environment:item-core'
+//include 'environment:region-core'
 // include 'environment:world-core'
-// include 'environment:region-core'
 // include 'environment:teleport-core'
 
 // Networking

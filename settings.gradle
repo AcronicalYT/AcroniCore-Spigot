@@ -56,10 +56,10 @@ include 'environment:item-core'
 include 'networking'
 include 'networking:nms-core'
 include 'networking:http-core'
+include 'networking:proxy-core'
 // include 'networking:discord-core'
 // include 'networking:locale-core'
 // include 'networking:packet-core'
-// include 'networking:proxy-core'
 
 // Development
 include 'development'

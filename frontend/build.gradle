@@ -5,10 +5,10 @@ plugins {
 dependencies {
     api project(':frontend:gui-core')
     api project(':frontend:scoreboard-core')
+    api project(':frontend:hologram-core')
+    api project(':frontend:particle-core')
     // api project(':frontend:ui-core')
     // api project(':frontend:tablist-core')
     // api project(':frontend:bossbar-core')
-    // api project(':frontend:hologram-core')
-    // api project(':frontend:particle-core')
     // api project(':frontend:skin-core')
 }

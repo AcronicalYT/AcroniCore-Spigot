@@ -34,10 +34,13 @@ The repository is organised as a multi-project Gradle build. The following modul
 - frontend
   - frontend:gui-core
   - frontend:scoreboard-core
+  - frontend:hologram-core
+  - frontend:particle-core
 
 - mechanics
   - mechanics:command-core
   - mechanics:cooldown-core
+  - mechanics:script-core
 
 - environment
   - environment:item-core
@@ -45,6 +48,8 @@ The repository is organised as a multi-project Gradle build. The following modul
 - networking
   - networking:nms-core
   - networking:http-core
+  - networking:proxy-core
+  - networking:discord-core
 
 - development
 

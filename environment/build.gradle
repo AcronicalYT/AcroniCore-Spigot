@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     api project(':environment:item-core')
+//    api project(':environment:region-core')
     // api project(':environment:world-core')
-    // api project(':environment:region-core')
     // api project(':environment:teleport-core')
 }

@@ -5,8 +5,8 @@ plugins {
 dependencies {
     api project(':networking:http-core')
     api project(':networking:nms-core')
-    // api project(':networking:discord-core')
+    api project(':networking:proxy-core')
+    api project(':networking:discord-core')
     // api project(':networking:locale-core')
     // api project(':networking:packet-core')
-    // api project(':networking:proxy-core')
 }

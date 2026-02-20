@@ -1,5 +1,8 @@
 rootProject.name = 'AcroniCore-Spigot'
 
+// Companion plugin
+//include 'companion'
+
 // Includes everything
 include 'everything'
 
@@ -27,36 +30,36 @@ include 'backend:pdc-core'
 include 'frontend'
 include 'frontend:gui-core'
 include 'frontend:scoreboard-core'
+include 'frontend:hologram-core'
+include 'frontend:particle-core'
 // include 'frontend:ui-core'
 // include 'frontend:tablist-core'
 // include 'frontend:bossbar-core'
-// include 'frontend:hologram-core'
-// include 'frontend:particle-core'
 // include 'frontend:skin-core'
 
 // Mechanics
 include 'mechanics'
 include 'mechanics:command-core'
 include 'mechanics:cooldown-core'
+include 'mechanics:script-core'
 // include 'mechanics:permission-core'
-// include 'mechanics:script-core'
 // include 'mechanics:chat-core'
 
 // Environment
 include 'environment'
 include 'environment:item-core'
+//include 'environment:region-core'
 // include 'environment:world-core'
-// include 'environment:region-core'
 // include 'environment:teleport-core'
 
 // Networking
 include 'networking'
 include 'networking:nms-core'
 include 'networking:http-core'
-// include 'networking:discord-core'
+include 'networking:proxy-core'
+include 'networking:discord-core'
 // include 'networking:locale-core'
 // include 'networking:packet-core'
-// include 'networking:proxy-core'
 
 // Development
 include 'development'

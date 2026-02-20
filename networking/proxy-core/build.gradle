@@ -1,0 +1,4 @@
+dependencies {
+    api project(':infrastructure:common')
+    compileOnly 'com.google.guava:guava:32.1.2-jre'
+}

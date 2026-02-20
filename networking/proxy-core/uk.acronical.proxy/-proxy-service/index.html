@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ProxyService</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.2
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":networking:proxy-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="proxy-core::uk.acronical.proxy/ProxyService///PointingToDeclaration//21558732">
+  <div class="breadcrumbs"><a href="../../index.html">proxy-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.proxy</a><span class="delimiter">/</span><span class="current">ProxyService</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Proxy</span><wbr><span><span>Service</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">ProxyService</a></div><p class="paragraph">A centralised service for managing cross-server communication via the BungeeCord messaging channel. </p><p class="paragraph"> This service facilitates common proxy actions such as player redirection and data requests, while providing a registration system for handling asynchronous responses.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.2</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-17405074%2FConstructors%2F21558732" anchor-label="ProxyService" id="-17405074%2FConstructors%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-proxy-service.html"><span>Proxy</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-17405074%2FConstructors%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">plugin<span class="token operator">: </span>Plugin</span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises the <a href="index.html">ProxyService</a> and registers the required plugin channels.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1115568787%2FFunctions%2F21558732" anchor-label="connect" id="1115568787%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect.html"><span><span>connect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1115568787%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">serverName<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Redirects a player to a different server within the proxy network.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1077191879%2FFunctions%2F21558732" anchor-label="kick" id="-1077191879%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="kick.html"><span><span>kick</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1077191879%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="kick.html"><span class="token function">kick</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">reason<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Disconnects a player from the network with a specified reason.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1314334798%2FFunctions%2F21558732" anchor-label="onPluginMessageReceived" id="1314334798%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-plugin-message-received.html"><span>on</span><wbr><span>Plugin</span><wbr><span>Message</span><wbr><span><span>Received</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1314334798%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-plugin-message-received.html"><span class="token function">onPluginMessageReceived</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">channel<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief ">Internal listener for processing incoming plugin messages.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1879188850%2FFunctions%2F21558732" anchor-label="onResponse" id="1879188850%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-response.html"><span>on</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1879188850%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-response.html"><span class="token function">onResponse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">subChannel<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">handler<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/DataInputStream.html">DataInputStream</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief ">Registers a handler to process incoming data from a specific proxy sub-channel.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1522151173%2FFunctions%2F21558732" anchor-label="requestIP" id="-1522151173%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="request-i-p.html"><span>request</span><wbr><span><span>IP</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1522151173%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="request-i-p.html"><span class="token function">requestIP</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="brief ">Requests the IP address of a player from the proxy.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1848472822%2FFunctions%2F21558732" anchor-label="send" id="1848472822%2FFunctions%2F21558732" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":networking:proxy-core:dokkaHtmlPartial/main" data-filterable-set=":networking:proxy-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send.html"><span><span>send</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1848472822%2FFunctions%2F21558732"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":networking:proxy-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">subChannel<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Sends a simple data packet to a specified sub-channel.</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">subChannel<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief ">Sends multiple string arguments to a specified sub-channel.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

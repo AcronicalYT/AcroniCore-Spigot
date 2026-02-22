@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'uk.acronical'
-version = '1.0.2'
+version = '1.0.3'
 
 allprojects {
     repositories {
@@ -46,6 +46,9 @@ subprojects {
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
         }
+
+        withSourcesJar()
+        withJavadocJar()
     }
 
     dependencies {

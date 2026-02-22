@@ -7,6 +7,7 @@ dependencies {
     api project(':networking:nms-core')
     api project(':networking:proxy-core')
     api project(':networking:discord-core')
-    // api project(':networking:locale-core')
+    api project(':networking:locale-core')
+    // api project ('networking:auth-core')
     // api project(':networking:packet-core')
 }

@@ -28,10 +28,16 @@ public class Injector {
      * @param service The object instance to register as a service.
      */
     public void register(@NotNull Object service) {
-        services.put(service.getClass(), service);
+        Class<?> clazz = service.getClass();
 
-        for (Class<?> serviceInterface : service.getClass().getInterfaces()) {
-            services.put(serviceInterface, service);
+        while (clazz != null && clazz != Object.class) {
+            services.put(clazz, service);
+
+            for (Class<?> serviceInterface : clazz.getInterfaces()) {
+                services.put(serviceInterface, service);
+            }
+
+            clazz = clazz.getSuperclass();
         }
     }
 

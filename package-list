@@ -17,6 +17,9 @@ module:particle-core
 uk.acronical.particle
 module:scoreboard-core
 uk.acronical.scoreboard
+module:ui-core
+uk.acronical.ui
+uk.acronical.ui.input
 module:common
 uk.acronical.common
 module:error-core
@@ -40,6 +43,8 @@ uk.acronical.discord
 uk.acronical.discord.models
 module:http-core
 uk.acronical.http
+module:locale-core
+uk.acronical.locale
 module:nms-core
 uk.acronical.nms
 module:proxy-core

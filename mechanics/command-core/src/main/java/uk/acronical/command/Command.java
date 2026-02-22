@@ -1,9 +1,6 @@
 package uk.acronical.command;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * Marks a method as a command handler for the custom command system.
@@ -44,6 +41,14 @@ public @interface Command {
      * @return {@code true} if only players can use this command; otherwise {@code false}.
      */
     boolean playerOnly() default true;
+
+    /**
+     * Alternative labels that can be utilised to trigger this command.
+     *
+     * @return An array of aliases.
+     * @since 1.0.3
+     */
+    String[] aliases() default {};
 
     /**
      * A brief description of how to use the command correctly.

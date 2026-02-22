@@ -13,18 +13,15 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * A reflection-based framework for dynamic command registration and execution.
  * <p>
- * This framework injects itself into the internal Bukkit {@link CommandMap} to register
- * methods annotated with {@link Command}. It handles automatic argument parsing
- * for common types such as {@link Player}, {@code int}, and {@code boolean}.
+ * As of version 1.0.3, this framework supports bespoke tab completion via {@link TabCompleter}
+ * and command aliasing. It automates argument parsing for standard types and dispatches
+ * executions to annotated methods within registered instances.
  *
  * @author Acronical
  * @since 1.0.0
@@ -32,19 +29,20 @@ import java.util.stream.Collectors;
 public class CommandFramework {
 
     private final Plugin plugin;
+
     private final Map<String, Method> commandRegistry = new HashMap<>();
     private final Map<String, Object> commandInstances = new HashMap<>();
+
+    private final Map<String, Method> completerRegistry = new HashMap<>();
+    private final Map<String, Object> completerInstances = new HashMap<>();
+
     private CommandMap commandMap;
 
     /**
      * Initialises the framework and accesses the internal Bukkit {@link CommandMap}.
-     * <p>
-     * Note: This utilises reflection to access private fields within the server
-     * implementation and may require updates if the server software changes
-     * its internal structure.
      *
      * @param plugin The {@link Plugin} instance to associate with this framework.
-     * @throws RuntimeException If the internal {@link CommandMap} cannot be accessed.
+     * @throws RuntimeException If the internal {@link CommandMap} cannot be accessed via reflection.
      */
     public CommandFramework(@NotNull Plugin plugin) {
         this.plugin = plugin;
@@ -60,29 +58,46 @@ public class CommandFramework {
     }
 
     /**
-     * Scans an object instance for {@link Command} annotations and registers them.
+     * Scans an object instance for {@link Command} and {@link TabCompleter} annotations.
+     * <p>
+     * Commands are registered both by their primary name and their defined aliases.
+     * Completers are mapped to the primary command name.
      *
-     * @param instance The object containing the command handler methods.
+     * @param instance The object containing the handler methods.
      */
     public void registerCommands(@NotNull Object instance) {
         for (Method method : instance.getClass().getDeclaredMethods()) {
             if (method.isAnnotationPresent(Command.class)) {
                 Command commandInfo = method.getAnnotation(Command.class);
+                String mainName = commandInfo.name().toLowerCase();
 
-                commandRegistry.put(commandInfo.name().toLowerCase(), method);
-                commandInstances.put(commandInfo.name().toLowerCase(), instance);
+                commandRegistry.put(mainName, method);
+                commandInstances.put(mainName, instance);
+
+                for (String alias : commandInfo.aliases()) {
+                    commandRegistry.put(alias.toLowerCase(), method);
+                    commandInstances.put(alias.toLowerCase(), instance);
+                }
 
                 BukkitCommand bukkitCommand = getBukkitCommand(commandInfo);
                 commandMap.register(plugin.getName(), bukkitCommand);
+            }
+
+            if (method.isAnnotationPresent(TabCompleter.class)) {
+                TabCompleter completerInfo = method.getAnnotation(TabCompleter.class);
+                String targetName = completerInfo.value().toLowerCase();
+
+                completerRegistry.put(targetName, method);
+                completerInstances.put(targetName, instance);
             }
         }
     }
 
     /**
-     * Wraps the {@link Command} metadata into a {@link BukkitCommand} for registration.
+     * Wraps the {@link Command} metadata into a {@link BukkitCommand} for Bukkit registration.
      *
      * @param commandInfo The annotation metadata.
-     * @return A {@link BukkitCommand} ready for the internal map.
+     * @return A {@link BukkitCommand} initialised with permissions, usage, and aliases.
      */
     @NotNull
     private BukkitCommand getBukkitCommand(@NotNull Command commandInfo) {
@@ -104,6 +119,10 @@ public class CommandFramework {
 
         if (!commandInfo.usage().isEmpty()) {
             bukkitCommand.setUsage(commandInfo.usage());
+        }
+
+        if (commandInfo.aliases().length > 0) {
+            bukkitCommand.setAliases(Arrays.asList(commandInfo.aliases()));
         }
 
         return bukkitCommand;
@@ -180,9 +199,7 @@ public class CommandFramework {
         Parameter[] params = method.getParameters();
         Object[] resolved = new Object[params.length];
 
-        if (params.length == 0) {
-            return resolved;
-        }
+        if (params.length == 0) return resolved;
 
         Class<?> senderType = params[0].getType();
 
@@ -228,16 +245,41 @@ public class CommandFramework {
     }
 
     /**
-     * Provides context-aware tab completion suggestions based on parameter types.
+     * Determines the appropriate tab completion suggestions for the current input.
+     * <p>
+     * Prioritises methods annotated with {@link TabCompleter}. If none exist, it falls back
+     * to type-based inference for standard parameter types.
      *
+     * @param sender The source of the tab completion request.
+     * @param alias  The command alias being completed.
+     * @param args   The current arguments entered by the user.
      * @return A filtered list of suggestions matching the current input.
      */
+    @SuppressWarnings("unchecked")
     private List<String> handleTabComplete(CommandSender sender, String alias, String[] args) {
-        Method method = commandRegistry.get(alias.toLowerCase());
-        if (method == null) return List.of();
+        String lowerAlias = alias.toLowerCase();
+        Method commandMethod = commandRegistry.get(lowerAlias);
+
+        if (commandMethod == null) return List.of();
+
+        Command cmdAnnotation = commandMethod.getAnnotation(Command.class);
+        String mainName = cmdAnnotation.name().toLowerCase();
+
+        if (completerRegistry.containsKey(mainName)) {
+            try {
+                Method completerMethod = completerRegistry.get(mainName);
+                Object instance = completerInstances.get(mainName);
+
+                return (List<String>) completerMethod.invoke(instance, sender, args);
+            } catch (Exception e) {
+                LoggerUtils.severe("Failed to invoke custom tab completer for: " + mainName);
+                LoggerUtils.severe(e.getMessage());
+                return List.of();
+            }
+        }
 
         int argIndex = args.length - 1;
-        Parameter[] params = method.getParameters();
+        Parameter[] params = commandMethod.getParameters();
 
         int paramIndex = argIndex + 1;
         if (paramIndex >= params.length) return List.of();
@@ -249,9 +291,7 @@ public class CommandFramework {
 
         if (type == Player.class) {
             for (Player player : plugin.getServer().getOnlinePlayers()) {
-                if (player.getName().toLowerCase().startsWith(currentInput)) {
-                    suggestions.add(player.getName());
-                }
+                suggestions.add(player.getName());
             }
         } else if (type.isEnum()) {
             for (Object constant : type.getEnumConstants()) suggestions.add(constant.toString());

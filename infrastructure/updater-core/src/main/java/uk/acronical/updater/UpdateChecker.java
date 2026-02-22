@@ -105,6 +105,7 @@ public class UpdateChecker {
      * @param hasUpdate  Whether a newer version exists remotely.
      * @param newVersion The version string found on the remote server.
      * @param oldVersion The current version of the local plugin.
+     * @param downloadUrl The URL where the new version can be downloaded.
      */
     public record UpdateResult(boolean hasUpdate, String newVersion, String oldVersion, String downloadUrl) {}
 }

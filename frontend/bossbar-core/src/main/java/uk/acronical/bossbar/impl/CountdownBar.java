@@ -24,6 +24,8 @@ import java.util.function.Consumer;
 public class CountdownBar extends BaseBossBar {
 
     private final TaskManager taskManager;
+    private final int seconds;
+    private final boolean autoStart;
     private int totalTicks;
     private int remainingTicks;
     private int taskId = -1;
@@ -33,13 +35,16 @@ public class CountdownBar extends BaseBossBar {
      * Initialises the countdown bar.
      *
      * @param taskManager The {@link TaskManager} to handle the repeating sync task.
+     * @param seconds     The seconds to run the countdown for.
      * @param title       The display title.
      * @param barColor    The bar colour.
      * @param barStyle    The bar style.
      */
-    public CountdownBar(@NotNull TaskManager taskManager, @NotNull String title, @NotNull BarColor barColor, @NotNull BarStyle barStyle) {
+    public CountdownBar(@NotNull TaskManager taskManager, int seconds, boolean autoStart, @NotNull String title, @NotNull BarColor barColor, @NotNull BarStyle barStyle) {
         super(title, barColor, barStyle);
         this.taskManager = taskManager;
+        this.seconds = seconds;
+        this.autoStart = autoStart;
         this.bossBar.setProgress(1.0);
     }
 
@@ -53,6 +58,20 @@ public class CountdownBar extends BaseBossBar {
     public CountdownBar onComplete(@Nullable Consumer<List<Player>> action) {
         this.onComplete = action;
         return this;
+    }
+
+    @Override
+    public void onRegister() {
+        if (autoStart) start(this.seconds);
+    }
+
+    @Override
+    public void onUnregister() {
+        if (taskId != -1) {
+            taskManager.cancel(taskId);
+            taskId = -1;
+        }
+        super.onUnregister();
     }
 
     /**

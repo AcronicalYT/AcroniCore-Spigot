@@ -30,6 +30,7 @@ public class BossBarService implements Listener {
      */
     public void registerGlobalBar(@NotNull BaseBossBar bossBar) {
         globalBars.add(bossBar);
+        bossBar.onRegister();
         Bukkit.getOnlinePlayers().forEach(bossBar::addPlayer);
     }
 
@@ -43,7 +44,7 @@ public class BossBarService implements Listener {
      */
     public void unregisterGlobalBar(@NotNull BaseBossBar bossBar) {
         globalBars.remove(bossBar);
-        bossBar.removeAll();
+        bossBar.onUnregister();
     }
 
     /**

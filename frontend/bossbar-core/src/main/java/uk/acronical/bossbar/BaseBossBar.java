@@ -68,6 +68,18 @@ public class BaseBossBar {
     }
 
     /**
+     * An entrypoint to run custom logic when the bossbar is shown.
+     */
+    public void onRegister() { }
+
+    /**
+     * An entrypoint to run custom logic when the bossbar is removed.
+     */
+    public void onUnregister() {
+        removeAll();
+    }
+
+    /**
      * Retrieves the underlying native Bukkit {@link BossBar}.
      *
      * @return The native boss bar instance.

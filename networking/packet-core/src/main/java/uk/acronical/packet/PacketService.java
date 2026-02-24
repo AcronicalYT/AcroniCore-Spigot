@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 import uk.acronical.common.LoggerUtils;
 
 import java.lang.reflect.Field;
@@ -17,20 +18,44 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * A service for injecting custom Netty handlers into the Minecraft network pipeline.
+ * <p>
+ * This utilises reflection to access the underlying {@link Channel} of a player,
+ * allowing for the interception and manipulation of raw packets via {@link PacketListener}.
+ *
+ * @author Acronical
+ * @since 1.0.3
+ */
 public class PacketService implements Listener {
 
     private final String handlerName;
     private final List<PacketListener> listeners = new CopyOnWriteArrayList<>();
 
-    public PacketService(Plugin plugin) {
+    /**
+     * Initialises the {@link PacketService} with a unique handler name.
+     *
+     * @param plugin The plugin instance utilising this service.
+     */
+    public PacketService(@NotNull Plugin plugin) {
         this.handlerName = plugin.getName() + "_PacketInjector";
     }
 
-    public void registerListener(PacketListener listener) {
+    /**
+     * Registers a new listener to intercept packet traffic.
+     *
+     * @param listener The {@link PacketListener} to add.
+     */
+    public void registerListener(@NotNull PacketListener listener) {
         listeners.add(listener);
     }
 
-    public void unregisterListener(PacketListener listener) {
+    /**
+     * Unregisters an existing packet listener.
+     *
+     * @param listener The {@link PacketListener} to remove.
+     */
+    public void unregisterListener(@NotNull PacketListener listener) {
         listeners.remove(listener);
     }
 
@@ -44,6 +69,9 @@ public class PacketService implements Listener {
         uninject(event.getPlayer());
     }
 
+    /**
+     * Injects the duplex handler into the player's Netty pipeline.
+     */
     private void inject(Player player) {
         try {
             Channel channel = getChannel(player);
@@ -82,6 +110,9 @@ public class PacketService implements Listener {
         }
     }
 
+    /**
+     * Removes the custom handler from the player's pipeline to prevent memory leaks.
+     */
     private void uninject(Player player) {
         try {
             Channel channel = getChannel(player);
@@ -90,6 +121,9 @@ public class PacketService implements Listener {
         } catch (Exception ignored) {}
     }
 
+    /**
+     * Navigates the internal Minecraft server classes to find the Netty {@link Channel}.
+     */
     private Channel getChannel(Player player) throws Exception {
         Method getHandle = player.getClass().getMethod("getHandle");
         Object serverPlayer = getHandle.invoke(player);
@@ -104,6 +138,9 @@ public class PacketService implements Listener {
         return (Channel) channelField.get(networkManager);
     }
 
+    /**
+     * Helper to find fields by their type name, aiding in version-independent reflection.
+     */
     private Field getFieldByType(Class<?> clazz, String simpleTypeName) {
         for (Field field : clazz.getFields()) if (field.getType().getSimpleName().equals(simpleTypeName)) return field;
 

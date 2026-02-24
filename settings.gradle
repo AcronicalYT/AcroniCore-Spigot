@@ -35,10 +35,10 @@ include 'frontend:scoreboard-core'
 include 'frontend:hologram-core'
 include 'frontend:particle-core'
 include 'frontend:ui-core'
+include 'frontend:bossbar-core'
 // include 'frontend:animation-core'
 // include 'frontend:title-core'
 // include 'frontend:tablist-core'
-// include 'frontend:bossbar-core'
 // include 'frontend:skin-core'
 
 // Mechanics

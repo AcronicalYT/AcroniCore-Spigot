@@ -24,8 +24,8 @@ include 'backend:database-core:redis'
 include 'backend:config-core'
 include 'backend:pdc-core'
 include 'backend:session-core'
+include 'backend:archive-core'
 // include 'backend:analytics-core'
-// include 'backend:archive-core'
 // include 'backend:serialisation-core'
 
 // Frontend

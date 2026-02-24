@@ -72,8 +72,8 @@ include 'networking:http-core'
 include 'networking:proxy-core'
 include 'networking:discord-core'
 include 'networking:locale-core'
+include 'networking:packet-core'
 // include 'networking:auth-core'
-// include 'networking:packet-core'
 
 // Development
 include 'development'

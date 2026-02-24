@@ -30,6 +30,9 @@ The repository is organised as a multi-project Gradle build. The following modul
     - backend:database-core:redis
   - backend:config-core
   - backend:pdc-core
+  - backend:session-core
+  - backend:archive-core
+  - backend:serialisation-core
 
 - frontend
   - frontend:gui-core
@@ -37,14 +40,18 @@ The repository is organised as a multi-project Gradle build. The following modul
   - frontend:hologram-core
   - frontend:particle-core
   - frontend:ui-core
+  - frontend:bossbar-core
 
 - mechanics
   - mechanics:command-core
   - mechanics:cooldown-core
   - mechanics:script-core
+  - mechanics:permission-core
 
 - environment
   - environment:item-core
+  - environment:region-core
+  - environment:teleport-core
 
 - networking
   - networking:nms-core
@@ -52,6 +59,7 @@ The repository is organised as a multi-project Gradle build. The following modul
   - networking:proxy-core
   - networking:discord-core
   - networking:locale-core
+  - networking:packet-core
 
 - development
 

@@ -1,13 +1,26 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
+module:archive-core
+uk.acronical.archive
 module:config-core
 uk.acronical.config
 module:pdc-core
 uk.acronical.pdc
 uk.acronical.pdc.wrapper
+module:serialisation-core
+uk.acronical.serialisation
+module:session-core
+uk.acronical.session
 module:item-core
 uk.acronical.item
+module:region-core
+uk.acronical.region
+module:teleport-core
+uk.acronical.teleport
+module:bossbar-core
+uk.acronical.bossbar
+uk.acronical.bossbar.impl
 module:gui-core
 uk.acronical.gui
 uk.acronical.gui.guis
@@ -36,6 +49,8 @@ module:command-core
 uk.acronical.command
 module:cooldown-core
 uk.acronical.cooldown
+module:permission-core
+uk.acronical.permission
 module:script-core
 uk.acronical.script
 module:discord-core
@@ -47,6 +62,8 @@ module:locale-core
 uk.acronical.locale
 module:nms-core
 uk.acronical.nms
+module:packet-core
+uk.acronical.packet
 module:proxy-core
 uk.acronical.proxy
 module:mongo

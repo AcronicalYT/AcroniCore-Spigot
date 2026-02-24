@@ -120,6 +120,27 @@ public class TaskManager {
     }
 
     /**
+     * Cancels a specific task by its ID.
+     *
+     * @param taskId The ID of the task to cancel.
+     * @throws IllegalStateException If the manager is not initialised.
+     */
+    public void cancel(int taskId) {
+        if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
+        plugin.getServer().getScheduler().cancelTask(taskId);
+    }
+
+    /**
+     * Cancels all tasks associated with this plugin.
+     *
+     * @throws IllegalStateException If the manager is not initialised.
+     */
+    public void cancelAll() {
+        if (!isInitialised()) throw new IllegalStateException("TaskManager has not been initialised with a plugin.");
+        plugin.getServer().getScheduler().cancelTasks(plugin);
+    }
+
+    /**
      * Creates a new {@link CountdownBuilder} instance.
      *
      * @return A fresh builder for second-based countdowns.

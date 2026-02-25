@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * to prevent memory leaks.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class PermissionService implements Listener {
 

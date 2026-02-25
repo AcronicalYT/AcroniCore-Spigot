@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * party service for lifecycle management.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.5
  */
 public class Party {
 

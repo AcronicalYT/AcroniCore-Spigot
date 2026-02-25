@@ -20,7 +20,7 @@ import java.util.UUID;
  * persistence safety.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class Cuboid {
 

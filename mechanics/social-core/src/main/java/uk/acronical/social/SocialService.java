@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * and block lists, utilised to moderate player interactions across the server.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.5
  */
 public class SocialService implements Listener {
 

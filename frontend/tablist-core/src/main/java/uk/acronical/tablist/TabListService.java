@@ -23,7 +23,7 @@ import java.util.function.Function;
  * or player-specific statistics.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.5
  */
 public class TabListService implements Listener {
 

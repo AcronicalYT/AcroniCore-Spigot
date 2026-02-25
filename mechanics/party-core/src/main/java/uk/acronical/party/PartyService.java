@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * ensuring that player states are synchronised and cleaned up upon disconnection.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.5
  */
 public class PartyService implements Listener {
 

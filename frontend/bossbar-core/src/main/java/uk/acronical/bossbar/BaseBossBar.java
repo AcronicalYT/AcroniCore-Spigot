@@ -17,7 +17,7 @@ import java.util.List;
  * custom implementations such as automated timers or progress trackers.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class BaseBossBar {
 

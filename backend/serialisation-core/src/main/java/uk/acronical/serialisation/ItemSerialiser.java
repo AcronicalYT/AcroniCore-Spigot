@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
  * all NBT data, including enchantments, lore, and custom metadata.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class ItemSerialiser {
 

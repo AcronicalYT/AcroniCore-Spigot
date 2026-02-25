@@ -17,7 +17,7 @@ import uk.acronical.bossbar.BaseBossBar;
  * method during damage events.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class HealthBar extends BaseBossBar {
 

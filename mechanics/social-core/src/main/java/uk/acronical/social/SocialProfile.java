@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * Ally) and is designed to be utilised within a session-based persistence system.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.5
  */
 public class SocialProfile {
 

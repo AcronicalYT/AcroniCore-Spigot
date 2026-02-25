@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * callback execution, utilising the {@link TaskManager} for scheduled operations.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class TeleportService implements Listener {
 

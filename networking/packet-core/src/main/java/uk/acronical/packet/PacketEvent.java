@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  * network traffic entirely.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class PacketEvent {
 

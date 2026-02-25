@@ -9,7 +9,7 @@ dependencies {
     api project(':frontend:particle-core')
     api project(':frontend:bossbar-core')
     api project(':frontend:actionbar-core')
+    api project(':frontend:tablist-core')
     // api project(':frontend:ui-core')
-    // api project(':frontend:tablist-core')
     // api project(':frontend:skin-core')
 }

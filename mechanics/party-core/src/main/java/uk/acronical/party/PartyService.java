@@ -141,20 +141,4 @@ public class PartyService implements Listener {
     public void onQuit(@NotNull PlayerQuitEvent event) {
         if (hasParty(event.getPlayer())) leaveParty(event.getPlayer());
     }
-
-    /**
-     * Monitors combat interactions to enforce party-based damage rules.
-     * <p>
-     * This handler checks if both the damager and the victim are in the same
-     * party and cancels the event if "Friendly Fire" is disabled.
-     *
-     * @param event The entity damage event.
-     */
-    @EventHandler
-    public void onEntityDamageEntity(@NotNull EntityDamageByEntityEvent event) {
-        if (!(event.getDamager() instanceof Player damager) || !(event.getEntity() instanceof Player victim)) return;
-        Party party = getParty(damager);
-        if (party == null || !party.isMember(victim) || party.isFriendlyFireEnabled()) return;
-        event.setCancelled(true);
-    }
 }

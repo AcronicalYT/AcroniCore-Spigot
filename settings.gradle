@@ -49,10 +49,10 @@ include 'mechanics:cooldown-core'
 include 'mechanics:script-core'
 include 'mechanics:permission-core'
 include 'mechanics:social-core'
+include 'mechanics:party-core'
 //include 'mechanics:attribute-core'
 // include 'mechanics:enchantment-core'
 //include 'mechanics:punishment-core'
-//include 'mechanics:party-core'
 // include 'mechanics:chat-core'
 
 // Environment

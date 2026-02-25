@@ -40,7 +40,7 @@ public class SocialProfile {
      * @param owner The player instance owning this profile.
      */
     public SocialProfile(@NotNull Player owner) {
-        this.owner = owner.getUniqueId();
+        this(owner.getUniqueId());
     }
 
     /**

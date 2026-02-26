@@ -1,4 +1,0 @@
-dependencies {
-    api project(':infrastructure:common')
-    api project(':environment:item-core')
-}

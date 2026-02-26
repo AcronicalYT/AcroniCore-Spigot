@@ -3,5 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation project(':infrastructure:common')
+    api project(':infrastructure:common')
+    api project(':infrastructure:exception-core')
 }

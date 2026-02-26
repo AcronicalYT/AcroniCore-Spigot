@@ -8,4 +8,5 @@ dependencies {
     api project(':infrastructure:error-core')
     api project(':infrastructure:inject-core')
     api project(':infrastructure:updater-core')
+    api project(':infrastructure:exception-core')
 }

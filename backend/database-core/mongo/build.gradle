@@ -4,5 +4,6 @@ plugins {
 
 dependencies {
     api project(':infrastructure:common')
+    api project(':infrastructure:exception-core')
     implementation 'org.mongodb:mongodb-driver-sync:4.11.1'
 }

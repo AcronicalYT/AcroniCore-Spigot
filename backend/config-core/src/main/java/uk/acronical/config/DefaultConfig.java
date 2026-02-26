@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import uk.acronical.common.LoggerUtils;
+import uk.acronical.config.exception.ConfigIOException;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,8 +45,8 @@ public class DefaultConfig {
      * <p>
      * If the file does not exist, it attempts to copy a default version from the
      * plugin's resources. If no resource is found, an empty file is created.
-     * <p>
-     * Errors during file creation are logged as severe via {@link LoggerUtils}.
+     *
+     * @throws ConfigIOException If the load operation fails due to an {@link IOException}
      */
     private void createFile() {
         file = new File(plugin.getDataFolder(), fileName);
@@ -57,8 +58,7 @@ public class DefaultConfig {
                 try {
                     file.createNewFile();
                 } catch (IOException e) {
-                    LoggerUtils.severe("Could not create configuration file: " + fileName);
-                    LoggerUtils.severe(e.getMessage());
+                    throw new ConfigIOException(fileName, "Create New File", e);
                 }
             }
         }
@@ -77,13 +77,14 @@ public class DefaultConfig {
      * Saves the current in-memory configuration to the physical file.
      * <p>
      * Errors during saving are logged as severe via {@link LoggerUtils}.
+     *
+     * @throws ConfigIOException If the save operation fails due to an {@link IOException}
      */
     public void save() {
         try {
             config.save(file);
         } catch (IOException e) {
-            LoggerUtils.severe("Could not save configuration file: " + fileName);
-            LoggerUtils.severe(e.getMessage());
+            throw new ConfigIOException(fileName, "Save to Disk", e);
         }
     }
 

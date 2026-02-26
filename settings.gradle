@@ -13,6 +13,7 @@ include 'infrastructure:task-core'
 include 'infrastructure:error-core'
 include 'infrastructure:inject-core'
 include 'infrastructure:updater-core'
+include 'infrastructure:exception-core'
 //include 'infrastructure:registry-core'
 
 // Backend

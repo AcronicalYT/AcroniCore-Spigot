@@ -6,5 +6,6 @@ dependencies {
     api project(':environment:item-core')
     api project(':environment:region-core')
     api project(':environment:teleport-core')
+    api project(':environment:loot-core')
     // api project(':environment:world-core')
 }

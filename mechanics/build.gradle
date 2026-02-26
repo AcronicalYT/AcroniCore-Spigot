@@ -10,5 +10,6 @@ dependencies {
     api project(':mechanics:permission-core')
     api project(':mechanics:party-core')
     api project(':mechanics:punishment-core')
+    api project(':mechanics:attribute-core')
     // api project(':mechanics:chat-core')
 }

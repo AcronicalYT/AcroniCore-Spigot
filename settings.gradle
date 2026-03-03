@@ -38,7 +38,7 @@ include 'frontend:ui-core'
 include 'frontend:bossbar-core'
 include 'frontend:actionbar-core'
 include 'frontend:tablist-core'
-// include 'frontend:animation-core'
+include 'frontend:animation-core'
 // include 'frontend:title-core'
 // include 'frontend:skin-core'
 

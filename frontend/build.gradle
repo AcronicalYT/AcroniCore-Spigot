@@ -10,6 +10,7 @@ dependencies {
     api project(':frontend:bossbar-core')
     api project(':frontend:actionbar-core')
     api project(':frontend:tablist-core')
+    api project(':frontend:animation-core')
     // api project(':frontend:ui-core')
     // api project(':frontend:skin-core')
 }

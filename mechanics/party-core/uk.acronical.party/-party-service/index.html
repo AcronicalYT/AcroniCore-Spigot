@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PartyService</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.5
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":mechanics:party-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="party-core::uk.acronical.party/PartyService///PointingToDeclaration//-1217682101">
+  <div class="breadcrumbs"><a href="../../index.html">party-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.party</a><span class="delimiter">/</span><span class="current">PartyService</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Party</span><wbr><span><span>Service</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">PartyService</a></div><p class="paragraph">A central service for managing party lifecycles and player associations. </p><p class="paragraph"> This service facilitates the creation, joining, and disbanding of groups, ensuring that player states are synchronised and cleaned up upon disconnection.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.5</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1831258890%2FConstructors%2F-1217682101" anchor-label="PartyService" id="-1831258890%2FConstructors%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-party-service.html"><span>Party</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1831258890%2FConstructors%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">plugin<span class="token operator">: </span>Plugin</span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises the <a href="index.html">PartyService</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1291345038%2FFunctions%2F-1217682101" anchor-label="areInSameParty" id="1291345038%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="are-in-same-party.html"><span>are</span><wbr><span>In</span><wbr><span>Same</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1291345038%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="are-in-same-party.html"><span class="token function">areInSameParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">playerA<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">playerB<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Verifies if two players are currently members of the same party.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1455354665%2FFunctions%2F-1217682101" anchor-label="createParty" id="-1455354665%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-party.html"><span>create</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1455354665%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-party.html"><span class="token function">createParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">leader<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-party/index.html">Party</a></div><div class="brief ">Creates a new party with the specified leader.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1054142039%2FFunctions%2F-1217682101" anchor-label="disbandParty" id="-1054142039%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disband-party.html"><span>disband</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1054142039%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="disband-party.html"><span class="token function">disbandParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">party<span class="token operator">: </span><a href="../-party/index.html">Party</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Disbands a party entirely and clears all member associations.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2059407047%2FFunctions%2F-1217682101" anchor-label="getParty" id="2059407047%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-party.html"><span>get</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2059407047%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-party.html"><span class="token function">getParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-party/index.html">Party</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1429290997%2FFunctions%2F-1217682101" anchor-label="hasParty" id="-1429290997%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-party.html"><span>has</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1429290997%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="has-party.html"><span class="token function">hasParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="907781166%2FFunctions%2F-1217682101" anchor-label="joinParty" id="907781166%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="join-party.html"><span>join</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="907781166%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="join-party.html"><span class="token function">joinParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">party<span class="token operator">: </span><a href="../-party/index.html">Party</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Adds a player to an existing party and updates the registry.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="487196392%2FFunctions%2F-1217682101" anchor-label="leaveParty" id="487196392%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="leave-party.html"><span>leave</span><wbr><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="487196392%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="leave-party.html"><span class="token function">leaveParty</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="brief ">Removes a player from their current party.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1881903314%2FFunctions%2F-1217682101" anchor-label="onQuit" id="-1881903314%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-quit.html"><span>on</span><wbr><span><span>Quit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1881903314%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-quit.html"><span class="token function">onQuit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">event<span class="token operator">: </span>PlayerQuitEvent</span></span><span class="token punctuation">)</span></div><div class="brief ">Monitors player quitting to remove them from potential parties.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

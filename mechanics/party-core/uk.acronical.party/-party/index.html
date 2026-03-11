@@ -1,0 +1,303 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Party</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.5
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":mechanics:party-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="party-core::uk.acronical.party/Party///PointingToDeclaration//-1217682101">
+  <div class="breadcrumbs"><a href="../../index.html">party-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.party</a><span class="delimiter">/</span><span class="current">Party</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Party</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Party</a></div><p class="paragraph">Represents a group of players associated for cooperative gameplay. </p><p class="paragraph"> This model manages membership, leadership, and party-wide communication. It is designed to be lightweight and thread-safe, utilised by a central party service for lifecycle management.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.5</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1759313970%2FConstructors%2F-1217682101" anchor-label="Party" id="1759313970%2FConstructors%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-party.html"><span><span>Party</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1759313970%2FConstructors%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">leader<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises a new party with a specific leader.</div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">leader<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises a new party with a specific leader.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-166250352%2FProperties%2F-1217682101" anchor-label="leader" id="-166250352%2FProperties%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="leader.html"><span><span>leader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-166250352%2FProperties%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="leader.html">leader</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1741914760%2FProperties%2F-1217682101" anchor-label="members" id="1741914760%2FProperties%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="members.html"><span><span>members</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1741914760%2FProperties%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="members.html">members</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html">Set</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="509317632%2FProperties%2F-1217682101" anchor-label="partyId" id="509317632%2FProperties%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="party-id.html"><span>party</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="509317632%2FProperties%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="party-id.html">partyId</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-2113781934%2FFunctions%2F-1217682101" anchor-label="addMember" id="-2113781934%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-member.html"><span>add</span><wbr><span><span>Member</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2113781934%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="add-member.html"><span class="token function">addMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><br><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="add-member.html"><span class="token function">addMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Adds a player to the party and clears any existing invitation for them.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="747096366%2FFunctions%2F-1217682101" anchor-label="broadcastMessage" id="747096366%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="broadcast-message.html"><span>broadcast</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747096366%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="broadcast-message.html"><span class="token function">broadcastMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Dispatches a coloured message to all online party members.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1982607560%2FFunctions%2F-1217682101" anchor-label="invite" id="-1982607560%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="invite.html"><span><span>invite</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1982607560%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="invite.html"><span class="token function">invite</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="invite.html"><span class="token function">invite</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="933865035%2FFunctions%2F-1217682101" anchor-label="isFriendlyFireEnabled" id="933865035%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-friendly-fire-enabled.html"><span>is</span><wbr><span>Friendly</span><wbr><span>Fire</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="933865035%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-friendly-fire-enabled.html"><span class="token function">isFriendlyFireEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1750601490%2FFunctions%2F-1217682101" anchor-label="isInvited" id="1750601490%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-invited.html"><span>is</span><wbr><span><span>Invited</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1750601490%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-invited.html"><span class="token function">isInvited</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-invited.html"><span class="token function">isInvited</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="277754084%2FFunctions%2F-1217682101" anchor-label="isLeader" id="277754084%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-leader.html"><span>is</span><wbr><span><span>Leader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="277754084%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-leader.html"><span class="token function">isLeader</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-leader.html"><span class="token function">isLeader</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="747385794%2FFunctions%2F-1217682101" anchor-label="isMember" id="747385794%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-member.html"><span>is</span><wbr><span><span>Member</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747385794%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-member.html"><span class="token function">isMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="is-member.html"><span class="token function">isMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1255017742%2FFunctions%2F-1217682101" anchor-label="removeMember" id="1255017742%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-member.html"><span>remove</span><wbr><span><span>Member</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1255017742%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="remove-member.html"><span class="token function">removeMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="remove-member.html"><span class="token function">removeMember</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="582522492%2FFunctions%2F-1217682101" anchor-label="setFriendlyFire" id="582522492%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-friendly-fire.html"><span>set</span><wbr><span>Friendly</span><wbr><span><span>Fire</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="582522492%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-friendly-fire.html"><span class="token function">setFriendlyFire</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">friendlyFire<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1160420619%2FFunctions%2F-1217682101" anchor-label="setLeader" id="-1160420619%2FFunctions%2F-1217682101" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:party-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:party-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-leader.html"><span>set</span><wbr><span><span>Leader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1160420619%2FFunctions%2F-1217682101"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:party-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-leader.html"><span class="token function">setLeader</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

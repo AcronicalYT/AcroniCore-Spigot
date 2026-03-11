@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>TabListService</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.5
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":frontend:tablist-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="tablist-core::uk.acronical.tablist/TabListService///PointingToDeclaration//-1702400887">
+  <div class="breadcrumbs"><a href="../../index.html">tablist-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.tablist</a><span class="delimiter">/</span><span class="current">TabListService</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Tab</span><wbr><span>List</span><wbr><span><span>Service</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">TabListService</a></div><p class="paragraph">A service for managing dynamic player list (TabList) headers and footers. </p><p class="paragraph"> This utility facilitates the use of persistent, auto-refreshing text at the top and bottom of the tab menu, utilised to display server information or player-specific statistics.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.5</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="223828932%2FConstructors%2F-1702400887" anchor-label="TabListService" id="223828932%2FConstructors%2F-1702400887" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":frontend:tablist-core:dokkaHtmlPartial/main" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-tab-list-service.html"><span>Tab</span><wbr><span>List</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="223828932%2FConstructors%2F-1702400887"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">plugin<span class="token operator">: </span>Plugin<span class="token punctuation">, </span></span><span class="parameter ">taskManager<span class="token operator">: </span>TaskManager</span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises the <a href="index.html">TabListService</a> and starts the background update loop.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="880613934%2FFunctions%2F-1702400887" anchor-label="clear" id="880613934%2FFunctions%2F-1702400887" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":frontend:tablist-core:dokkaHtmlPartial/main" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear.html"><span><span>clear</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="880613934%2FFunctions%2F-1702400887"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="clear.html"><span class="token function">clear</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="brief ">Removes all dynamic providers and clears the tab list display for a player.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2110430296%2FFunctions%2F-1702400887" anchor-label="onQuit" id="-2110430296%2FFunctions%2F-1702400887" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":frontend:tablist-core:dokkaHtmlPartial/main" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-quit.html"><span>on</span><wbr><span><span>Quit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2110430296%2FFunctions%2F-1702400887"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-quit.html"><span class="token function">onQuit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">event<span class="token operator">: </span>PlayerQuitEvent</span></span><span class="token punctuation">)</span></div><div class="brief ">Ensures memory is freed by removing providers when a player disconnects.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1867198341%2FFunctions%2F-1702400887" anchor-label="setFooter" id="1867198341%2FFunctions%2F-1702400887" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":frontend:tablist-core:dokkaHtmlPartial/main" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-footer.html"><span>set</span><wbr><span><span>Footer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1867198341%2FFunctions%2F-1702400887"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-footer.html"><span class="token function">setFooter</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">footerProvider<span class="token operator">: </span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Sets a dynamic footer provider for a specific player.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2071125879%2FFunctions%2F-1702400887" anchor-label="setHeader" id="2071125879%2FFunctions%2F-1702400887" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":frontend:tablist-core:dokkaHtmlPartial/main" data-filterable-set=":frontend:tablist-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-header.html"><span>set</span><wbr><span><span>Header</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2071125879%2FFunctions%2F-1702400887"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":frontend:tablist-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-header.html"><span class="token function">setHeader</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player<span class="token punctuation">, </span></span><span class="parameter ">headerProvider<span class="token operator">: </span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Sets a dynamic header provider for a specific player.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

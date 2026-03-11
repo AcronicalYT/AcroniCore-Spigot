@@ -41,17 +41,25 @@ The repository is organised as a multi-project Gradle build. The following modul
   - frontend:particle-core
   - frontend:ui-core
   - frontend:bossbar-core
+  - frontend:actionbar-core
+  - frontend:tablist-core
+  - frontend:animation-core
 
 - mechanics
   - mechanics:command-core
   - mechanics:cooldown-core
   - mechanics:script-core
   - mechanics:permission-core
+  - mechanics:social-core
+  - mechanics:party-core
+  - mechanics:punishment-core
+  - mechanics:attribute-core
 
 - environment
   - environment:item-core
   - environment:region-core
   - environment:teleport-core
+  - environment:loot-core
 
 - networking
   - networking:nms-core

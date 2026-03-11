@@ -12,7 +12,7 @@ import java.util.UUID;
  *
  * @param <T> The type of session object managed by this provider.
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public interface SessionProvider<T> {
 

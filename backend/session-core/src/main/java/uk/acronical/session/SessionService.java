@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @param <T> The type of session object managed.
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class SessionService<T> implements Listener {
 

@@ -25,7 +25,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * allowing for the interception and manipulation of raw packets via {@link PacketListener}.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class PacketService implements Listener {
 

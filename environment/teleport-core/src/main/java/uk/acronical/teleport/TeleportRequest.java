@@ -14,7 +14,7 @@ import java.util.function.Consumer;
  * warm-up delays, movement-based cancellation, and safety verification.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class TeleportRequest {
 

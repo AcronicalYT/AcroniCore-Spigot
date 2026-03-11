@@ -19,7 +19,7 @@ import java.util.zip.ZipInputStream;
  * and includes security checks to prevent directory traversal attacks.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class ArchiveExtractor {
 

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Minecraft protocol before data is finalised.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public interface PacketListener {
 

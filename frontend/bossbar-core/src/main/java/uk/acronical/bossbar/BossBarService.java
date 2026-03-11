@@ -17,7 +17,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * registered bars during join and quit events, utilising a thread-safe registry.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class BossBarService implements Listener {
 

@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
  * ideal for storage in flat-files or SQL databases where human readability is preferred.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class LocationSerialiser {
 

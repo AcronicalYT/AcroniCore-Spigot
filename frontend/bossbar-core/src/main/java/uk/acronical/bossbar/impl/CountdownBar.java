@@ -19,7 +19,7 @@ import java.util.function.Consumer;
  * utilised primarily for minigame starts, combat timers, or event durations.
  *
  * @author Acronical
- * @since 1.0.3
+ * @since 1.0.4
  */
 public class CountdownBar extends BaseBossBar {
 

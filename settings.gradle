@@ -46,6 +46,9 @@ include 'frontend:animation-core'
 //include 'frontend:map-core'
 //include 'frontend:camera-core'
 //include 'frontend:resourcepack-core'
+//include 'frontend:glow-core'
+//include 'frontend:nametag-core'
+//include 'frontend:indicator-core'
 
 // Mechanics
 include 'mechanics'
@@ -61,6 +64,7 @@ include 'mechanics:attribute-core'
 //include 'mechanics:chat-core'
 //include 'mechanics:combat-core'
 //include 'mechanics:stats-core'
+//include 'mechanics:visibility-core'
 
 // Environment
 include 'environment'
@@ -75,6 +79,7 @@ include 'environment:loot-core'
 //include 'environment:world-core'
 //include 'environment:recipe-core'
 //include 'environment:generator-core'
+//include 'environment:border-core'
 
 // Networking
 include 'networking'

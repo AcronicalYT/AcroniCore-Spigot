@@ -27,7 +27,7 @@ include 'backend:pdc-core'
 include 'backend:session-core'
 include 'backend:archive-core'
 include 'backend:serialisation-core'
-//include 'backend:analytics-core'
+include 'backend:analytics-core'
 //include 'backend:cache-core'
 
 // Frontend

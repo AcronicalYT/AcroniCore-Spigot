@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    api project(':backend:analytics-core')
     api project(':backend:config-core')
     api project(':backend:database-core')
     api project(':backend:pdc-core')

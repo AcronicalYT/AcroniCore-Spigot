@@ -61,7 +61,7 @@ include 'mechanics:party-core'
 include 'mechanics:punishment-core'
 include 'mechanics:attribute-core'
 //include 'mechanics:enchantment-core'
-//include 'mechanics:chat-core'
+include 'mechanics:chat-core'
 //include 'mechanics:combat-core'
 //include 'mechanics:stats-core'
 //include 'mechanics:visibility-core'
@@ -108,3 +108,4 @@ include 'development'
  *  E.g. anything with init() methods that need to be registered with the server.
  *  This will mean I have to have fallbacks to make sure things are not registered multiple times (this shouldn't happen if I follow my own instructions)
  */
+include 'mechanics:chat-core'

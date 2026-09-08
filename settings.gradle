@@ -72,7 +72,7 @@ include 'environment:item-core'
 include 'environment:region-core'
 include 'environment:teleport-core'
 include 'environment:loot-core'
-//include 'environment:block-core'
+include 'environment:block-core'
 //include 'environment:sound-core'
 //include 'environment:structure-core'
 //include 'environment:entity-core'
@@ -109,3 +109,4 @@ include 'development'
  *  This will mean I have to have fallbacks to make sure things are not registered multiple times (this shouldn't happen if I follow my own instructions)
  */
 include 'mechanics:chat-core'
+include 'environment:block-core'

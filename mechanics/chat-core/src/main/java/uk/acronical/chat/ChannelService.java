@@ -6,6 +6,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.Set;
@@ -33,7 +34,7 @@ public class ChannelService implements Listener {
      *
      * @param channel The channel to register.
      */
-    public void registerChannel(ChatChannel channel) {
+    public void registerChannel(@NotNull ChatChannel channel) {
         registeredChannels.putIfAbsent(channel.getIdentifier().toLowerCase(), channel);
     }
 
@@ -42,7 +43,7 @@ public class ChannelService implements Listener {
      *
      * @param channel The default channel.
      */
-    public void setDefaultChannel(ChatChannel channel) {
+    public void setDefaultChannel(@NotNull ChatChannel channel) {
         this.defaultChannel = channel;
         registerChannel(channel);
     }
@@ -53,7 +54,7 @@ public class ChannelService implements Listener {
      * @param player     The player changing channels.
      * @param identifier The identifier of the target channel.
      */
-    public void setActiveChannel(Player player, String identifier) {
+    public void setActiveChannel(@NotNull Player player, @NotNull String identifier) {
         ChatChannel channel = registeredChannels.get(identifier.toLowerCase());
         if (channel == null) channel = defaultChannel;
         if (channel == null) activeChannels.remove(player.getUniqueId());
@@ -66,7 +67,7 @@ public class ChannelService implements Listener {
      * @param player The player to check.
      * @return The active channel, or the default channel if none is set.
      */
-    public ChatChannel getActiveChannel(Player player) {
+    public ChatChannel getActiveChannel(@NotNull Player player) {
         return activeChannels.getOrDefault(player.getUniqueId(), defaultChannel);
     }
 

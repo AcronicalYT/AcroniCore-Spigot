@@ -30,6 +30,7 @@ public class CountdownBar extends BaseBossBar {
     private int remainingTicks;
     private int taskId = -1;
     private Consumer<List<Player>> onComplete;
+    private boolean visible = true;
 
     /**
      * Initialises the countdown bar.
@@ -74,6 +75,17 @@ public class CountdownBar extends BaseBossBar {
         super.onUnregister();
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * Toggles the visibility of the boss bar for all current viewers.
+     */
+    public void setIsVisible(boolean visible) {
+        this.visible = visible;
+    }
+
     /**
      * Starts the countdown timer.
      * <p>
@@ -96,7 +108,7 @@ public class CountdownBar extends BaseBossBar {
             }
 
             double progress = (double) remainingTicks / totalTicks;
-            bossBar.setProgress(Math.max(0.0, Math.min(1.0, progress)));
+            bossBar.setProgress(Math.clamp(progress, 0.0, 1.0));
 
         }, 0L, 1L).getTaskId();
     }

@@ -108,5 +108,3 @@ include 'development'
  *  E.g. anything with init() methods that need to be registered with the server.
  *  This will mean I have to have fallbacks to make sure things are not registered multiple times (this shouldn't happen if I follow my own instructions)
  */
-include 'mechanics:chat-core'
-include 'environment:block-core'

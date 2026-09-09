@@ -12,4 +12,5 @@ dependencies {
     api project(':mechanics:punishment-core')
     api project(':mechanics:attribute-core')
     api project(':mechanics:chat-core')
+    api project(':mechanics:economy-core')
 }

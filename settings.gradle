@@ -99,7 +99,7 @@ include 'development'
 //include 'development:test-core'
 //include 'development:debug-core'
 include 'development:benchmark-core'
-//include 'development:reload-core'
+include 'development:reload-core'
 
 /*
  * TODO: Create a companion plugin that allows users to use the plugin as a dependency, instead of relying on sharding/shadow.

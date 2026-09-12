@@ -5,4 +5,5 @@ plugins {
 dependencies {
     // api project(':development:test-core')
     api project(':development:benchmark-core')
+    api project(':development:reload-core')
 }

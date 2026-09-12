@@ -15,6 +15,9 @@ include 'infrastructure:inject-core'
 include 'infrastructure:updater-core'
 //include 'infrastructure:registry-core'
 //include 'infrastructure:math-core'
+//include 'infrastructure:dependency-core'
+//include 'infrastructure:module-core'
+//include 'infrastructure:reflection-core'
 
 // Backend
 include 'backend'
@@ -29,6 +32,7 @@ include 'backend:archive-core'
 include 'backend:serialisation-core'
 include 'backend:analytics-core'
 //include 'backend:cache-core'
+//include 'backend:messaging-core'
 
 // Frontend
 include 'frontend'
@@ -66,6 +70,7 @@ include 'mechanics:chat-core'
 //include 'mechanics:combat-core'
 //include 'mechanics:stats-core'
 //include 'mechanics:visibility-core'
+//include 'mechanics:quest-core'
 
 // Environment
 include 'environment'

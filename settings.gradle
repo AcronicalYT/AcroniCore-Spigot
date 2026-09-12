@@ -98,7 +98,7 @@ include 'networking:packet-core'
 include 'development'
 //include 'development:test-core'
 //include 'development:debug-core'
-//include 'development:benchmark-core'
+include 'development:benchmark-core'
 //include 'development:reload-core'
 
 /*

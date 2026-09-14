@@ -83,7 +83,7 @@ include 'environment:block-core'
 //include 'environment:structure-core'
 //include 'environment:entity-core'
 //include 'environment:world-core'
-//include 'environment:recipe-core'
+include 'environment:recipe-core'
 //include 'environment:generator-core'
 //include 'environment:border-core'
 

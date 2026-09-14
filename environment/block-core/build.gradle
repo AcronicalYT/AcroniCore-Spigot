@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     api project(':infrastructure:common')
+    api project(':infrastructure:task-core')
 }

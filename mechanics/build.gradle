@@ -13,4 +13,5 @@ dependencies {
     api project(':mechanics:attribute-core')
     api project(':mechanics:chat-core')
     api project(':mechanics:economy-core')
+    api project(':mechanics:quest-core')
 }

@@ -70,7 +70,7 @@ include 'mechanics:chat-core'
 //include 'mechanics:combat-core'
 //include 'mechanics:stats-core'
 //include 'mechanics:visibility-core'
-//include 'mechanics:quest-core'
+include 'mechanics:quest-core'
 
 // Environment
 include 'environment'

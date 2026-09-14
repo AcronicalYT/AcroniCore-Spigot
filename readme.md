@@ -33,6 +33,8 @@ The repository is organised as a multi-project Gradle build. The following modul
   - backend:session-core
   - backend:archive-core
   - backend:serialisation-core
+  - backend:analytics-core
+  - backend:cache-core
 
 - frontend
   - frontend:gui-core
@@ -54,12 +56,17 @@ The repository is organised as a multi-project Gradle build. The following modul
   - mechanics:party-core
   - mechanics:punishment-core
   - mechanics:attribute-core
+  - mechanics:chat-core
+  - mechanics:economy-core
+  - mechanics:quest-core
 
 - environment
   - environment:item-core
   - environment:region-core
   - environment:teleport-core
   - environment:loot-core
+  - environment:block-core
+  - environment:recipe-core
 
 - networking
   - networking:nms-core
@@ -70,6 +77,8 @@ The repository is organised as a multi-project Gradle build. The following modul
   - networking:packet-core
 
 - development
+  - development:benchmark-core
+  - development:reload-core
 
 Notes:
 - Only modules explicitly included in settings.gradle are listed above. Several optional or experimental modules are present but commented out in settings.gradle and are not part of the current build.

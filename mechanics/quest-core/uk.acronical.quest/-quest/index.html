@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Quest</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            AcroniCore-Spigot
+                    </a>            </div>
+            <div class="library-version">1.0.6
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":mechanics:quest-core:dokkaHtmlPartial/main">main</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="quest-core::uk.acronical.quest/Quest///PointingToDeclaration//-1208640561">
+  <div class="breadcrumbs"><a href="../../index.html">quest-core</a><span class="delimiter">/</span><a href="../index.html">uk.acronical.quest</a><span class="delimiter">/</span><span class="current">Quest</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Quest</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Quest</a></div><p class="paragraph">Represents a defined quest template containing a series of objectives. </p><p class="paragraph"> This class acts as the immutable blueprint for a quest, defining the requirements and the reward executed upon completion. Player progression should be tracked separately to ensure this template remains stateless and thread-safe.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Acronical</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.6</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1871719934%2FConstructors%2F-1208640561" anchor-label="Quest" id="-1871719934%2FConstructors%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-quest.html"><span><span>Quest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1871719934%2FConstructors%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Initialises a new quest template.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-2128645706%2FProperties%2F-1208640561" anchor-label="id" id="-2128645706%2FProperties%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2128645706%2FProperties%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-624840361%2FProperties%2F-1208640561" anchor-label="objectives" id="-624840361%2FProperties%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="objectives.html"><span><span>objectives</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-624840361%2FProperties%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="objectives.html">objectives</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-objective/index.html">Objective</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1828461826%2FFunctions%2F-1208640561" anchor-label="addObjective" id="-1828461826%2FFunctions%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-objective.html"><span>add</span><wbr><span><span>Objective</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1828461826%2FFunctions%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="add-objective.html"><span class="token function">addObjective</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">objective<span class="token operator">: </span><a href="../-objective/index.html">Objective</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Quest</a></div><div class="brief ">Appends a new objective requirement to this quest.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1514621687%2FFunctions%2F-1208640561" anchor-label="complete" id="1514621687%2FFunctions%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="complete.html"><span><span>complete</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1514621687%2FFunctions%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="complete.html"><span class="token function">complete</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">player<span class="token operator">: </span>Player</span></span><span class="token punctuation">)</span></div><div class="brief ">Triggers the completion logic and distributes rewards to a specific player.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1061469501%2FFunctions%2F-1208640561" anchor-label="setReward" id="1061469501%2FFunctions%2F-1208640561" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":mechanics:quest-core:dokkaHtmlPartial/main" data-filterable-set=":mechanics:quest-core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-reward.html"><span>set</span><wbr><span><span>Reward</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1061469501%2FFunctions%2F-1208640561"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":mechanics:quest-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="set-reward.html"><span class="token function">setReward</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onComplete<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span>Player<span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Quest</a></div><div class="brief ">Defines the action to execute when a player successfully fulfils all objectives within this quest.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

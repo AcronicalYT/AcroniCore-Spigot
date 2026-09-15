@@ -76,19 +76,4 @@ public class PausableCountdownBar extends CountdownBar {
             bossBar.setProgress(Math.clamp(progress, 0.0, 1.0));
         }, 0L, 1L).getTaskId();
     }
-
-    @Override
-    public void finish() {
-        if (taskId != -1) {
-            taskManager.cancel(taskId);
-            taskId = -1;
-        }
-
-        List<Player> snapshot = new ArrayList<>(viewers);
-        removeAll();
-
-        if (onComplete != null) {
-            onComplete.accept(snapshot);
-        }
-    }
 }
